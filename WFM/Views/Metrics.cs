@@ -15,5 +15,15 @@ namespace WFM.Views
         {
             InitializeComponent();
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("tabControl1_Click");
+        }
     }
 }

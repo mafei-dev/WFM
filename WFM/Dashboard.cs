@@ -43,8 +43,12 @@ namespace WFM
 
 
         
+        Metrics Metrics=new Metrics();
         private void LblDashboard_Click(object sender, EventArgs e)
         {
+            PnlDashboard.Controls.Clear();
+            Metrics.Dock = DockStyle.Fill;
+            PnlDashboard.Controls.Add(Metrics);
             
         }
 
@@ -64,6 +68,11 @@ namespace WFM
             PnlDashboard.Controls.Clear();
             employees.Dock = DockStyle.Fill;
             PnlDashboard.Controls.Add(employees);
+        }
+
+        private void PnlDashboard_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

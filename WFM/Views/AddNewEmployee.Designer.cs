@@ -1,13 +1,13 @@
 ﻿namespace WFM.Views
 {
-    partial class Metrics
+    partial class AddNewEmployee
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -30,12 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // Metrics
+            // AddNewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Metrics";
-            this.Size = new System.Drawing.Size(439, 292);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
+            this.ClientSize = new System.Drawing.Size(434, 332);
+            this.MinimizeBox = false;
+            this.Name = "AddNewEmployee";
+            this.Text = "AddNewEmployee";
             this.ResumeLayout(false);
 
         }
