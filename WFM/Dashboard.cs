@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using WFM;
+using WFM.Views;
 
 namespace WFM
 {
     public partial class Dashboard : Form
     {
-        
         public Dashboard()
         {
             InitializeComponent();
@@ -39,6 +39,14 @@ namespace WFM
 
         public void changePanel(string activePanel)
         {
+        }
+
+
+        private void LblDashboard_Click(object sender, EventArgs e)
+        {
+            Projects projects = new Projects(DateTime.Now.ToString());
+            projects.Dock = DockStyle.Fill;
+            PnlDashboard.Controls.Add(projects);
             
         }
     }

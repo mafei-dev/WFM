@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LblEmployee = new System.Windows.Forms.Label();
+            this.LblProjects = new System.Windows.Forms.Label();
+            this.LblDashboard = new System.Windows.Forms.Label();
             this.PnlDashboard = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -39,53 +39,57 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (32)))), ((int) (((byte) (33)))), ((int) (((byte) (36)))));
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.LblEmployee);
+            this.panel1.Controls.Add(this.LblProjects);
+            this.panel1.Controls.Add(this.LblDashboard);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(163, 450);
             this.panel1.TabIndex = 0;
             // 
-            // label2
+            // LblEmployee
             // 
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Image = global::WFM.Properties.Resources.emp;
-            this.label2.Location = new System.Drawing.Point(0, 204);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 102);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Employees";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.LblEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LblEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LblEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.LblEmployee.ForeColor = System.Drawing.Color.White;
+            this.LblEmployee.Image = global::WFM.Properties.Resources.emp;
+            this.LblEmployee.Location = new System.Drawing.Point(0, 204);
+            this.LblEmployee.Name = "LblEmployee";
+            this.LblEmployee.Size = new System.Drawing.Size(162, 102);
+            this.LblEmployee.TabIndex = 2;
+            this.LblEmployee.Text = "Employees";
+            this.LblEmployee.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // label4
+            // LblProjects
             // 
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Image = global::WFM.Properties.Resources.projects;
-            this.label4.Location = new System.Drawing.Point(0, 102);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 102);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Projects";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.LblProjects.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LblProjects.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LblProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.LblProjects.ForeColor = System.Drawing.Color.White;
+            this.LblProjects.Image = global::WFM.Properties.Resources.projects;
+            this.LblProjects.Location = new System.Drawing.Point(0, 102);
+            this.LblProjects.Name = "LblProjects";
+            this.LblProjects.Size = new System.Drawing.Size(162, 102);
+            this.LblProjects.TabIndex = 1;
+            this.LblProjects.Text = "Projects";
+            this.LblProjects.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // label1
+            // LblDashboard
             // 
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Image = global::WFM.Properties.Resources.chart1;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 102);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Dashboard";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.LblDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LblDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LblDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.LblDashboard.ForeColor = System.Drawing.Color.White;
+            this.LblDashboard.Image = global::WFM.Properties.Resources.chart1;
+            this.LblDashboard.Location = new System.Drawing.Point(0, 0);
+            this.LblDashboard.Name = "LblDashboard";
+            this.LblDashboard.Size = new System.Drawing.Size(162, 102);
+            this.LblDashboard.TabIndex = 0;
+            this.LblDashboard.Text = "Dashboard";
+            this.LblDashboard.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.LblDashboard.Click += new System.EventHandler(this.LblDashboard_Click);
             // 
             // PnlDashboard
             // 
@@ -112,13 +116,11 @@
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.Label LblDashboard;
+        private System.Windows.Forms.Label LblEmployee;
+        private System.Windows.Forms.Label LblProjects;
+
         private System.Windows.Forms.Panel PnlDashboard;
-
-        private System.Windows.Forms.Label label2;
-
-        private System.Windows.Forms.Label label4;
-
-        private System.Windows.Forms.Label label1;
 
         #endregion
 

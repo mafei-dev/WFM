@@ -22,15 +22,35 @@
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.lblName = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // lblName
+            // 
+            this.lblName.Location = new System.Drawing.Point(110, 79);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(213, 75);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "label1";
+            // 
+            // Projects
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.Controls.Add(this.lblName);
+            this.Name = "Projects";
+            this.Size = new System.Drawing.Size(387, 258);
+            this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Label lblName;
 
         #endregion
     }

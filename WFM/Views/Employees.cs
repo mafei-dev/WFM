@@ -9,15 +9,11 @@ using System.Windows.Forms;
 
 namespace WFM.Views
 {
-    public partial class Projects : UserControl
+    public partial class Employees : UserControl
     {
-        private string name;
-
-        public Projects(string name)
+        public Employees()
         {
             InitializeComponent();
-            this.name = name;
-            lblName.Text = name;
         }
     }
 }
