@@ -64,6 +64,12 @@
     <Compile Include="Views\Employees.Designer.cs">
       <DependentUpon>Employees.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Metrics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Metrics.Designer.cs">
+      <DependentUpon>Metrics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Projects.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Employees.resx">
       <DependentUpon>Employees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Metrics.resx">
+      <DependentUpon>Metrics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Projects.resx">
       <DependentUpon>Projects.cs</DependentUpon>

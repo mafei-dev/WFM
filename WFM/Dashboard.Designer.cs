@@ -38,7 +38,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (32)))), ((int) (((byte) (33)))), ((int) (((byte) (36)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
             this.panel1.Controls.Add(this.LblEmployee);
             this.panel1.Controls.Add(this.LblProjects);
             this.panel1.Controls.Add(this.LblDashboard);
@@ -52,7 +52,7 @@
             // 
             this.LblEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.LblEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.LblEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEmployee.ForeColor = System.Drawing.Color.White;
             this.LblEmployee.Image = global::WFM.Properties.Resources.emp;
             this.LblEmployee.Location = new System.Drawing.Point(0, 204);
@@ -61,12 +61,13 @@
             this.LblEmployee.TabIndex = 2;
             this.LblEmployee.Text = "Employees";
             this.LblEmployee.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.LblEmployee.Click += new System.EventHandler(this.LblEmployee_Click);
             // 
             // LblProjects
             // 
             this.LblProjects.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblProjects.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.LblProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.LblProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblProjects.ForeColor = System.Drawing.Color.White;
             this.LblProjects.Image = global::WFM.Properties.Resources.projects;
             this.LblProjects.Location = new System.Drawing.Point(0, 102);
@@ -75,12 +76,13 @@
             this.LblProjects.TabIndex = 1;
             this.LblProjects.Text = "Projects";
             this.LblProjects.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.LblProjects.Click += new System.EventHandler(this.LblProjects_Click);
             // 
             // LblDashboard
             // 
             this.LblDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.LblDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.LblDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblDashboard.ForeColor = System.Drawing.Color.White;
             this.LblDashboard.Image = global::WFM.Properties.Resources.chart1;
             this.LblDashboard.Location = new System.Drawing.Point(0, 0);
@@ -93,7 +95,7 @@
             // 
             // PnlDashboard
             // 
-            this.PnlDashboard.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (192)))), ((int) (((byte) (128)))));
+            this.PnlDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.PnlDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlDashboard.Location = new System.Drawing.Point(163, 0);
             this.PnlDashboard.Name = "PnlDashboard";
@@ -104,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (42)))), ((int) (((byte) (42)))), ((int) (((byte) (42)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.PnlDashboard);
             this.Controls.Add(this.panel1);
@@ -114,6 +116,7 @@
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.Label LblDashboard;

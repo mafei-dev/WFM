@@ -42,12 +42,28 @@ namespace WFM
         }
 
 
+        
         private void LblDashboard_Click(object sender, EventArgs e)
         {
-            Projects projects = new Projects(DateTime.Now.ToString());
+            
+        }
+
+        Projects projects = new Projects(DateTime.Now.ToString());
+
+        private void LblProjects_Click(object sender, EventArgs e)
+        {
+            PnlDashboard.Controls.Clear();
             projects.Dock = DockStyle.Fill;
             PnlDashboard.Controls.Add(projects);
-            
+        }
+
+        Employees employees = new Employees();
+
+        private void LblEmployee_Click(object sender, EventArgs e)
+        {
+            PnlDashboard.Controls.Clear();
+            employees.Dock = DockStyle.Fill;
+            PnlDashboard.Controls.Add(employees);
         }
     }
 }
