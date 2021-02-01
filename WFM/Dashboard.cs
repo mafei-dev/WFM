@@ -74,5 +74,22 @@ namespace WFM
         {
 
         }
+
+        private void LblEmployee_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblEmployee_MouseLeave(object sender, EventArgs e)
+        {
+            this.LblEmployee.Image = global::WFM.Properties.Resources.emp;
+            this.LblEmployee.ForeColor = System.Drawing.Color.White;
+        }
+
+        private void LblEmployee_MouseEnter(object sender, EventArgs e)
+        {
+            this.LblEmployee.Image = global::WFM.Properties.Resources.emp_clicked;
+            this.LblEmployee.ForeColor = System.Drawing.Color.Yellow;
+        }
     }
 }

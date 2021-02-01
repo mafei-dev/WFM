@@ -36,6 +36,7 @@
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.1.4\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
@@ -56,14 +57,26 @@
       <CustomToolNamespace>View</CustomToolNamespace>
     </Compile>
     <Compile Include="Models\AdminUser.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Presenters\IAddNewEmployee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IEmployeeRepo.cs" />
+    <Compile Include="Servicecs\Common\ModelDataAnnoationCheck.cs" />
+    <Compile Include="Servicecs\EmployeeServie.cs" />
+    <Compile Include="Servicecs\IEmployeeServie.cs" />
     <Compile Include="Views\AddNewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\AddNewEmployee.Designer.cs">
       <DependentUpon>AddNewEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Attendance.Designer.cs">
+      <DependentUpon>Attendance.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Employees.cs">
       <SubType>UserControl</SubType>
@@ -99,6 +112,9 @@
     <EmbeddedResource Include="Views\AddNewEmployee.resx">
       <DependentUpon>AddNewEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Attendance.resx">
+      <DependentUpon>Attendance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Employees.resx">
       <DependentUpon>Employees.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,17 +136,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\projects_clicked.png" />
     <None Include="Resources\add_user.png" />
     <None Include="Resources\add_user_huver.png" />
     <Content Include="Resources\chart.png" />
     <Content Include="Resources\chart1.png" />
     <None Include="Resources\chart2.png" />
     <Content Include="Resources\emp.png" />
+    <None Include="Resources\emp_clicked.png" />
     <Content Include="Resources\icons8_edit_image_32.png" />
     <Content Include="Resources\projects.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Presenters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

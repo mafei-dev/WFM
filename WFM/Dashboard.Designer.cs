@@ -30,9 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.PnlDashboard = new System.Windows.Forms.Panel();
-            this.LblDashboard = new System.Windows.Forms.Label();
             this.LblEmployee = new System.Windows.Forms.Label();
             this.LblProjects = new System.Windows.Forms.Label();
+            this.LblDashboard = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,21 +58,6 @@
             this.PnlDashboard.TabIndex = 1;
             this.PnlDashboard.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlDashboard_Paint);
             // 
-            // LblDashboard
-            // 
-            this.LblDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LblDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.LblDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDashboard.ForeColor = System.Drawing.Color.White;
-            this.LblDashboard.Image = global::WFM.Properties.Resources.chart1;
-            this.LblDashboard.Location = new System.Drawing.Point(0, 0);
-            this.LblDashboard.Name = "LblDashboard";
-            this.LblDashboard.Size = new System.Drawing.Size(114, 102);
-            this.LblDashboard.TabIndex = 0;
-            this.LblDashboard.Text = "Dashboard";
-            this.LblDashboard.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.LblDashboard.Click += new System.EventHandler(this.LblDashboard_Click);
-            // 
             // LblEmployee
             // 
             this.LblEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -87,6 +72,9 @@
             this.LblEmployee.Text = "Employees";
             this.LblEmployee.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.LblEmployee.Click += new System.EventHandler(this.LblEmployee_Click);
+            this.LblEmployee.MouseEnter += new System.EventHandler(this.LblEmployee_MouseEnter);
+            this.LblEmployee.MouseLeave += new System.EventHandler(this.LblEmployee_MouseLeave);
+            this.LblEmployee.MouseHover += new System.EventHandler(this.LblEmployee_MouseHover);
             // 
             // LblProjects
             // 
@@ -102,6 +90,21 @@
             this.LblProjects.Text = "Projects";
             this.LblProjects.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.LblProjects.Click += new System.EventHandler(this.LblProjects_Click);
+            // 
+            // LblDashboard
+            // 
+            this.LblDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LblDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LblDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDashboard.ForeColor = System.Drawing.Color.White;
+            this.LblDashboard.Image = global::WFM.Properties.Resources.chart1;
+            this.LblDashboard.Location = new System.Drawing.Point(0, 0);
+            this.LblDashboard.Name = "LblDashboard";
+            this.LblDashboard.Size = new System.Drawing.Size(114, 102);
+            this.LblDashboard.TabIndex = 0;
+            this.LblDashboard.Text = "Dashboard";
+            this.LblDashboard.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.LblDashboard.Click += new System.EventHandler(this.LblDashboard_Click);
             // 
             // Dashboard
             // 

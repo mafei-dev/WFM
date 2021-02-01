@@ -123,6 +123,16 @@ namespace WFM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap emp_clicked {
+            get {
+                object obj = ResourceManager.GetObject("emp_clicked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_edit_image_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_edit_image_32", resourceCulture);
@@ -136,6 +146,16 @@ namespace WFM.Properties {
         internal static System.Drawing.Bitmap projects {
             get {
                 object obj = ResourceManager.GetObject("projects", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap projects_clicked {
+            get {
+                object obj = ResourceManager.GetObject("projects_clicked", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
