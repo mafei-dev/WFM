@@ -5,14 +5,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace WFM.Servicecs.Common
+namespace WFM.Services.Common
 {
     class ModelDataAnnoationCheck
     {
 
         public void ValidateModel<TModelDomain>(TModelDomain model)
         {
-                ICollection<ValidationResult> validationResultsList = List<ValidationResult>();
+                // ICollection<ValidationResult> validationResultsList = List<ValidationResult>();
         }
     }
 }

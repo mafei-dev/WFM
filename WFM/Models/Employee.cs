@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WFM.Models
 {
-    class Employee:User
+    public class Employee:User
     {
     }
 }

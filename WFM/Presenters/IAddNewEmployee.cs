@@ -8,6 +8,6 @@ namespace WFM.Presenters
 {
     interface IAddNewEmployee
     {
-        User AddUser { set; }
+        User AddEmp { set; }
     }
 }

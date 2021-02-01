@@ -9,9 +9,9 @@ namespace WFM.Repository
     interface IEmployeeRepo
     {
 
-        int AddEmp(Employee employee);
-        int UpdateEmp(Employee employee);
-        List<Employee> SearchEmpsByData(string data);
+        int AddEMP(Employee employee);
+        int UpdateEMP(Employee employee);
+        List<Employee> SearchEMPByData(string data);
         Employee GetById(string id);
     }
 }
