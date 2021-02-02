@@ -1,4 +1,4 @@
-﻿using WFM.Presenters;
+﻿﻿using WFM.Presenters;
 
 namespace WFM.Views
 {
@@ -30,6 +30,7 @@ namespace WFM.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,7 +43,9 @@ namespace WFM.Views
             this.txtLName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFName = new System.Windows.Forms.TextBox();
+            this.errorFName = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorFName)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,18 +65,19 @@ namespace WFM.Views
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(429, 332);
+            this.panel1.Size = new System.Drawing.Size(450, 267);
             this.panel1.TabIndex = 2;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(141, 225);
+            this.btnSubmit.Location = new System.Drawing.Point(141, 224);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(274, 23);
             this.btnSubmit.TabIndex = 11;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.btnSubmit.Validating += new System.ComponentModel.CancelEventHandler(this.btnSubmit_Validating);
             // 
             // label5
             // 
@@ -91,6 +95,7 @@ namespace WFM.Views
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(275, 102);
             this.txtAddress.TabIndex = 9;
+            this.txtAddress.Enter += new System.EventHandler(this.txtAddress_Enter);
             // 
             // dpBirthday
             // 
@@ -98,6 +103,7 @@ namespace WFM.Views
             this.dpBirthday.Name = "dpBirthday";
             this.dpBirthday.Size = new System.Drawing.Size(275, 20);
             this.dpBirthday.TabIndex = 8;
+            this.dpBirthday.Enter += new System.EventHandler(this.dpBirthday_Enter);
             // 
             // label4
             // 
@@ -114,6 +120,7 @@ namespace WFM.Views
             this.txtNIC.Name = "txtNIC";
             this.txtNIC.Size = new System.Drawing.Size(275, 20);
             this.txtNIC.TabIndex = 6;
+            this.txtNIC.Enter += new System.EventHandler(this.txtNIC_Enter);
             // 
             // label3
             // 
@@ -139,6 +146,7 @@ namespace WFM.Views
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(275, 20);
             this.txtLName.TabIndex = 2;
+            this.txtLName.Enter += new System.EventHandler(this.txtLName_Enter);
             // 
             // label1
             // 
@@ -155,13 +163,19 @@ namespace WFM.Views
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(275, 20);
             this.txtFName.TabIndex = 0;
+            this.txtFName.Enter += new System.EventHandler(this.txtFName_Enter);
+            // 
+            // errorFName
+            // 
+            this.errorFName.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorFName.ContainerControl = this;
             // 
             // AddNewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(429, 332);
+            this.ClientSize = new System.Drawing.Size(450, 267);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
@@ -171,9 +185,12 @@ namespace WFM.Views
             this.Text = "AddNewEmployee";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorFName)).EndInit();
             this.ResumeLayout(false);
 
         }
+
+        private System.Windows.Forms.ErrorProvider errorFName;
 
         #endregion
 

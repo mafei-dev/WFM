@@ -25,6 +25,7 @@ namespace WFM.Views
         {
             AddNewEmployee addNewEmployee = new AddNewEmployee();
             addNewEmployee.ShowDialog(this);
+            
         }
     }
 }

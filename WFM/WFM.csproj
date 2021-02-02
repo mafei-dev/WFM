@@ -38,6 +38,10 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0">
+      <HintPath>..\packages\FluentValidation.9.5.0\lib\net461\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.1.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.1.4\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
@@ -75,6 +79,7 @@
     <Compile Include="Services\Common\ModelDataAnnoationCheck.cs" />
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\IEmployeeService.cs" />
+    <Compile Include="Validators\EmployeeValidator.cs" />
     <Compile Include="Views\AddNewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +162,5 @@
     <Content Include="Resources\icons8_edit_image_32.png" />
     <Content Include="Resources\projects.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

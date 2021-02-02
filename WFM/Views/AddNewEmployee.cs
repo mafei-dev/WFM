@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using FluentValidation.Results;
 using WFM.Models;
-using WFM.Presenters;
-using WFM.Repository;
 using WFM.Services;
+using WFM.Validators;
 
 namespace WFM.Views
 {
     public partial class AddNewEmployee : Form
     {
-        private User _user = new User();
         private Employee _employee = new Employee();
         private IEmployeeService _employeeService = new EmployeeService();
 
@@ -24,17 +18,7 @@ namespace WFM.Views
             InitializeComponent();
         }
 
-       
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("button1_Click");
-            List<Employee> searchEmpByData = _employeeService.SearchEMPByData(txtFName.Text);
-            foreach (var employee in searchEmpByData)
-            {
-                Console.WriteLine("employee " + employee.First_Name);
-            }
-        }
+        EmployeeValidator _employeeValidator = new EmployeeValidator();
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -43,10 +27,95 @@ namespace WFM.Views
             _employee.Address = txtAddress.Text;
             _employee.Birthday = dpBirthday.Text;
             _employee.NIC = txtNIC.Text;
-            if (_employeeService.AddNewEmployee(_employee)>0)
+
+            ValidationResult validationResult = _employeeValidator.Validate(_employee);
+            if (!validationResult.IsValid)
             {
-                MessageBox.Show("Added Successfully!", "Success");
+                foreach (ValidationFailure validationResultError in validationResult.Errors)
+                {
+                    if (validationResultError.PropertyName.Equals(nameof(_employee.First_Name)))
+                    {
+                        errorFName.SetError(txtFName, validationResultError.ErrorMessage);
+                    }
+                    else if (validationResultError.PropertyName.Equals(nameof(_employee.Last_Name)))
+                    {
+                        errorFName.SetError(txtLName, validationResultError.ErrorMessage);
+                    }
+                    else if (validationResultError.PropertyName.Equals(nameof(_employee.Address)))
+                    {
+                        errorFName.SetError(txtAddress, validationResultError.ErrorMessage);
+                    }
+                    else if (validationResultError.PropertyName.Equals(nameof(_employee.NIC)))
+                    {
+                        errorFName.SetError(txtNIC, validationResultError.ErrorMessage);
+                    }
+                }
             }
+            else
+            {
+                if (_employeeService.AddNewEmployee(_employee) > 0)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Successfully Added!\nDo you want to add more..?",
+                        "Result",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        clearForm();
+                    }
+                    else
+                    {
+                        Close();
+                    }
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Added Failed!", "Result",
+                        MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    if (dialogResult == DialogResult.Cancel)
+                    {
+                        Close();
+                    }
+                }
+            }
+        }
+
+        private void clearForm()
+        {
+            txtFName.ResetText();
+            txtLName.ResetText();
+            txtAddress.ResetText();
+            dpBirthday.ResetText();
+            txtNIC.ResetText();
+        }
+
+
+        private void btnSubmit_Validating(object sender, CancelEventArgs e)
+        {
+        }
+
+        private void txtFName_Enter(object sender, EventArgs e)
+        {
+            errorFName.SetError(txtFName, null);
+        }
+
+        private void txtLName_Enter(object sender, EventArgs e)
+        {
+            errorFName.SetError(txtLName, null);
+        }
+
+        private void txtNIC_Enter(object sender, EventArgs e)
+        {
+            errorFName.SetError(txtNIC, null);
+        }
+
+        private void txtAddress_Enter(object sender, EventArgs e)
+        {
+            errorFName.SetError(txtAddress, null);
+        }
+
+        private void dpBirthday_Enter(object sender, EventArgs e)
+        {
+            errorFName.SetError(dpBirthday, null);
         }
     }
 }

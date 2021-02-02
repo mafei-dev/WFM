@@ -10,3 +10,4 @@
         public string NIC { get; set; }
     }
 }
+

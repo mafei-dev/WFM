@@ -91,5 +91,13 @@ namespace WFM
             this.LblEmployee.Image = global::WFM.Properties.Resources.emp_clicked;
             this.LblEmployee.ForeColor = System.Drawing.Color.Yellow;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult r8 = MessageBox.Show(this, "Message with Help file and keyword.",
+                                   "Help Caption", MessageBoxButtons.OKCancel,
+                                   MessageBoxIcon.Information);
+
+        }
     }
 }
