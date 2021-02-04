@@ -1,22 +1,28 @@
-﻿using Dapper;
+﻿using System;
+using Dapper;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using WFM.Models;
+using WFM.Database;
 
 namespace WFM.Repository
 {
     public class EmployeeRepo : IEmployeeRepo
     {
+
+        public EmployeeRepo(IUnitOfWork unitOfWork) 
+        {
+            this.unitOfWork = unitOfWork;
+        } 
+        private IUnitOfWork unitOfWork;
         public int AddEMP(Employee employee)
         {
-            string sql = $@"INSERT INTO [dbo].[User]([First_Name], [Last_Name], [Address], [User_Id], [NIC]) 
-                            VALUES (@First_Name, @Last_Name, @Address, @User_Id, @NIC);";
-            using (IDbConnection connection = new SqlConnection(Helper.ConnectionString()))
-            {
-                return connection.Execute(sql, employee);
-            }
+            string sql =
+                $@"INSERT INTO [dbo].[User]([First_Name], [Last_Name], [Address], [User_Id], [NIC], [Gender], [Birthday]) 
+                            VALUES (@First_Name, @Last_Name, @Address, @User_Id, @NIC, @Gender , @Birthday);";
+                return unitOfWork.Connection.Execute(sql, employee,unitOfWork.Transaction);
             
         }
 
@@ -27,8 +33,7 @@ namespace WFM.Repository
 
         public List<Employee> SearchEMPByData(string data)
         {
-            using (IDbConnection connection = new SqlConnection(Helper.ConnectionString()))
-            {
+            
                 string sql = $@"SELECT
 	                            [User].First_Name, 
 	                            [User].Last_Name, 
@@ -39,8 +44,8 @@ namespace WFM.Repository
 	                            dbo.[User]
                             WHERE
 	                            [User].First_Name LIKE '%{data}%'";
-                return connection.Query<Employee>(sql).ToList();
-            }
+                return unitOfWork.Connection.Query<Employee>(sql).ToList();
+            
         }
 
         public Employee GetById(string id)

@@ -27,5 +27,10 @@ namespace WFM.Views
             addNewEmployee.ShowDialog(this);
             
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

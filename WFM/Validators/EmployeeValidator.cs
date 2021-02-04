@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using System;
+using FluentValidation;
 using WFM.Models;
 
 namespace WFM.Validators
@@ -26,7 +27,23 @@ namespace WFM.Validators
                 .Cascade(CascadeMode.StopOnFirstFailure)
                 .NotEmpty()
                 .WithMessage("NIC Can't be Empty.");
-            
+
+
+            RuleFor(employee => employee.Birthday)
+                .Must(CheckBirthday).WithMessage("Birthday must be before today.");
+
+        }
+
+        protected bool CheckBirthday(DateTime birthday)
+        {
+            Console.WriteLine("birthday {0}, today {1}",arg0:birthday,arg1:DateTime.Today);
+            int dateDiff = DateTime.Compare(DateTime.Today, birthday);
+            Console.WriteLine("dateDiff > {0}",arg0: dateDiff);
+            if (dateDiff==0 || dateDiff < 0 )
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

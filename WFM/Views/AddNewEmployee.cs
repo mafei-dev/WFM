@@ -22,12 +22,16 @@ namespace WFM.Views
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+
             _employee.First_Name = txtFName.Text;
             _employee.Last_Name = txtLName.Text;
             _employee.Address = txtAddress.Text;
-            _employee.Birthday = dpBirthday.Text;
+            _employee.Birthday = dpBirthday.Value.Date;
             _employee.NIC = txtNIC.Text;
+            _employee.Gender = rbtnMale.Checked?rbtnMale.Text:_employee.Gender;
+            _employee.Gender = rbtnFemale.Checked?rbtnFemale.Text:_employee.Gender;
 
+            errorFName.Clear();
             ValidationResult validationResult = _employeeValidator.Validate(_employee);
             if (!validationResult.IsValid)
             {
@@ -49,6 +53,13 @@ namespace WFM.Views
                     {
                         errorFName.SetError(txtNIC, validationResultError.ErrorMessage);
                     }
+                    
+                    else if (validationResultError.PropertyName.Equals(nameof(_employee.Birthday)))
+                    {
+                        errorFName.SetError(dpBirthday, validationResultError.ErrorMessage);
+                    }
+                    
+                    
                 }
             }
             else
@@ -58,6 +69,7 @@ namespace WFM.Views
                     DialogResult dialogResult = MessageBox.Show("Successfully Added!\nDo you want to add more..?",
                         "Result",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
                     if (dialogResult == DialogResult.Yes)
                     {
                         clearForm();
@@ -86,6 +98,8 @@ namespace WFM.Views
             txtAddress.ResetText();
             dpBirthday.ResetText();
             txtNIC.ResetText();
+            rbtnMale.Checked = true;
+            errorFName.Clear();
         }
 
 
@@ -116,6 +130,26 @@ namespace WFM.Views
         private void dpBirthday_Enter(object sender, EventArgs e)
         {
             errorFName.SetError(dpBirthday, null);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dpBirthday_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNIC_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

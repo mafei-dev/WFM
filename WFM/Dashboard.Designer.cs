@@ -33,9 +33,7 @@
             this.LblProjects = new System.Windows.Forms.Label();
             this.LblDashboard = new System.Windows.Forms.Label();
             this.PnlDashboard = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.PnlDashboard.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -101,23 +99,12 @@
             // PnlDashboard
             // 
             this.PnlDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.PnlDashboard.Controls.Add(this.button1);
             this.PnlDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlDashboard.Location = new System.Drawing.Point(114, 0);
             this.PnlDashboard.Name = "PnlDashboard";
             this.PnlDashboard.Size = new System.Drawing.Size(686, 450);
             this.PnlDashboard.TabIndex = 1;
             this.PnlDashboard.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlDashboard_Paint);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(313, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Dashboard
             // 
@@ -132,7 +119,6 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel1.ResumeLayout(false);
-            this.PnlDashboard.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -146,7 +132,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
     }
 }
 
