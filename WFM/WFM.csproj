@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Controller\AddNewAssetController.cs" />
     <Compile Include="Controller\AddNewProjectController.cs" />
+    <Compile Include="Controller\AssetController.cs" />
     <Compile Include="Controller\AssignEmployeeController.cs" />
     <Compile Include="Controller\EmployeesController.cs" />
     <Compile Include="Controller\IAddNewProjectController.cs" />
@@ -140,11 +141,29 @@
     <Compile Include="Views\AddNewProject.Designer.cs">
       <DependentUpon>AddNewProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddNewTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddNewTask.Designer.cs">
+      <DependentUpon>AddNewTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Assets.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Assets.Designer.cs">
       <DependentUpon>Assets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjectManagementOptionPane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProjectManagementOptionPane.Designer.cs">
+      <DependentUpon>ProjectManagementOptionPane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TaskManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TaskManage.Designer.cs">
+      <DependentUpon>TaskManage.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\AssignEmployee.cs">
       <SubType>Form</SubType>
@@ -201,8 +220,17 @@
     <EmbeddedResource Include="Views\AddNewProject.resx">
       <DependentUpon>AddNewProject.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddNewTask.resx">
+      <DependentUpon>AddNewTask.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Assets.resx">
       <DependentUpon>Assets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProjectManagementOptionPane.resx">
+      <DependentUpon>ProjectManagementOptionPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TaskManage.resx">
+      <DependentUpon>TaskManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AssignEmployee.resx">
       <DependentUpon>AssignEmployee.cs</DependentUpon>

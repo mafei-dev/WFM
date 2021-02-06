@@ -90,8 +90,8 @@ namespace WFM.Views
             if (e.ColumnIndex == 0)
             {
                 ProjectWithClient selectedProject = projects[e.RowIndex];
-                AssignEmployee assignEmployee = new AssignEmployee(selectedProject);
-                assignEmployee.ShowDialog(this);
+                ProjectManagementOptionPane projectManagementOptionPane = new ProjectManagementOptionPane(selectedProject);
+                projectManagementOptionPane.ShowDialog(this);
             }
         }
     }
