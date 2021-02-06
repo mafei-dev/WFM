@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlTypes;
 using Dapper;
 using WFM.Database;
@@ -33,6 +34,27 @@ namespace WFM.Repository
 
 
             return unitOfWork.Connection.Execute(sql, parameters, unitOfWork.Transaction);
+        }
+
+        public List<ProjectWithClient> GetAllProjects()
+        {
+            string sql = $@"SELECT
+							Project.Project_Id,
+							Project.Project_Name,
+							Project.Project_Note,
+							Project.Start_Date,
+							Project.End_Date,
+							Project.Cost,
+							Project.Client_Id,
+							Project.Status,
+							Project.Estimated_End_Date,
+							[User].First_Name,
+							[User].Last_Name 
+						FROM
+							dbo.Project
+							INNER JOIN dbo.[User] ON Project.Client_Id = [User].User_Id;";
+
+            return unitOfWork.Connection.Query<ProjectWithClient>(sql, null, unitOfWork.Transaction).AsList();
         }
     }
 }

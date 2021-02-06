@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblAddNewProject = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblAddNewProject = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgAllProjects = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAllProjects)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -49,6 +50,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(699, 73);
             this.panel2.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(492, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblAddNewProject
             // 
@@ -65,21 +76,11 @@
             this.lblAddNewProject.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.lblAddNewProject.Click += new System.EventHandler(this.lblAddNewProject_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(492, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dgAllProjects, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 73);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -89,16 +90,24 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(699, 376);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // dataGridView1
+            // dgAllProjects
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(693, 324);
-            this.dataGridView1.TabIndex = 0;
+            this.dgAllProjects.AllowUserToAddRows = false;
+            this.dgAllProjects.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgAllProjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgAllProjects.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.dgAllProjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgAllProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAllProjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgAllProjects.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.dgAllProjects.Location = new System.Drawing.Point(3, 3);
+            this.dgAllProjects.Name = "dgAllProjects";
+            this.dgAllProjects.ReadOnly = true;
+            this.dgAllProjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgAllProjects.Size = new System.Drawing.Size(693, 324);
+            this.dgAllProjects.TabIndex = 0;
+            this.dgAllProjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAllProjects_CellContentClick);
             // 
             // Projects
             // 
@@ -111,7 +120,7 @@
             this.Size = new System.Drawing.Size(699, 449);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAllProjects)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -122,6 +131,6 @@
         private System.Windows.Forms.Label lblAddNewProject;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgAllProjects;
     }
 }
