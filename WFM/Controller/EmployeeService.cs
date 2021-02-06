@@ -76,7 +76,7 @@ namespace WFM.Controller
             }
             else
             {
-                throw new Exception();
+                throw new System.Exception();
             }
         }
 

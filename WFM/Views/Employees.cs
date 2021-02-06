@@ -112,7 +112,7 @@ namespace WFM.Views
                     dgAllUsers.Rows.Add(row);
                 }
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 throw;
             }

@@ -6,24 +6,25 @@ using System.Data.SqlClient;
 using System.Linq;
 using WFM.Enity;
 using WFM.Database;
+using WFM.Properties;
 
 namespace WFM.Repository
 {
     public class EmployeeRepo : IEmployeeRepo
     {
-
         private IUnitOfWork unitOfWork;
-        public EmployeeRepo(IUnitOfWork unitOfWork) 
+
+        public EmployeeRepo(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
-        } 
+        }
+
         public int AddEMP(Employee employee)
         {
             string sql =
                 $@"INSERT INTO [dbo].[User]([First_Name], [Last_Name], [Address], [User_Id], [NIC], [Gender], [Birthday], [User_Type],[EMP_Id]) 
                             VALUES (@First_Name, @Last_Name, @Address, @User_Id, @NIC, @Gender , @Birthday, @User_Type, @EMP_Id);";
-                return unitOfWork.Connection.Execute(sql, employee,unitOfWork.Transaction);
-            
+            return unitOfWork.Connection.Execute(sql, employee, unitOfWork.Transaction);
         }
 
         public int UpdateEMP(Employee employee)
@@ -33,8 +34,7 @@ namespace WFM.Repository
 
         public List<Employee> SearchEMPByData(string data)
         {
-            
-                string sql = $@"SELECT
+            string sql = $@"SELECT
 	                            [User].First_Name, 
 	                            [User].Last_Name, 
 	                            [User].Address, 
@@ -43,9 +43,8 @@ namespace WFM.Repository
                             FROM
 	                            dbo.[User]
                             WHERE
-	                            [User].First_Name LIKE '%{data}%'";
-                return unitOfWork.Connection.Query<Employee>(sql).ToList();
-            
+	                            [User].First_Name LIKE '%{data}%' AND [User].User_Type = {(int) StaticResource.UseType.EMPLOYEE_USER}";
+            return unitOfWork.Connection.Query<Employee>(sql,null,unitOfWork.Transaction).ToList();
         }
 
         public Employee GetById(string id)
@@ -55,9 +54,9 @@ namespace WFM.Repository
 
         public Employee GetByEMPId(string EMPId)
         {
-	        DynamicParameters parameters = new DynamicParameters();
-	        parameters.Add("@EMPId",EMPId);
-	        string sql = $@"SELECT
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@EMPId", EMPId);
+            string sql = $@"SELECT
 	                            [User].First_Name, 
 	                            [User].Last_Name, 
 	                            [User].Address, 
@@ -68,7 +67,7 @@ namespace WFM.Repository
 	                            dbo.[User]
                             WHERE
 	                            [User].EMP_Id = @EMPId";
-            return unitOfWork.Connection.Query<Employee>(sql,parameters, unitOfWork.Transaction).SingleOrDefault();
+            return unitOfWork.Connection.Query<Employee>(sql, parameters, unitOfWork.Transaction).SingleOrDefault();
         }
     }
 }

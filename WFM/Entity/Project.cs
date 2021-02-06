@@ -5,6 +5,14 @@ namespace WFM.Entity
 {
     public class Project
     {
+        public Project()
+        {
+        }
+        public Project(string projectId)
+        {
+            Project_Id = projectId;
+        }
+
         public string Project_Id { get; set; }
         public string Project_Name { get; set; }
         public string Project_Note { get; set; }

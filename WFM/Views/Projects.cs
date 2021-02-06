@@ -24,5 +24,12 @@ namespace WFM.Views
             AddNewProject addNewProject = new AddNewProject();
             addNewProject.ShowDialog(this);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //todo : set project object
+            AssignEmployee assignEmployee = new AssignEmployee("ef61bfa9-0be4-4a29-9412-170deabff2f9");
+            assignEmployee.ShowDialog(this);
+        }
     }
 }

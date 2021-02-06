@@ -31,5 +31,21 @@ namespace WFM.Properties
             public static string EMPLOYEE_USER = "Employee";
             public static string CLIENT_USER = "Client";
         }
+
+        public static List<string> PROJECT_STATUS = new List<string>()
+        {
+            "Not Started",
+            "Active",
+            "In Development",
+            "Pending",
+            "Scheduled",
+            "Quality Control",
+            "In Progress",
+            "Keep Watch",
+            "On Hold",
+            "Pending Approval",
+            "Canceled",
+            "Complete"
+        };
     }
 }
