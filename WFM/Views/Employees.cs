@@ -69,16 +69,16 @@ namespace WFM.Views
 
             _employeesController = new EmployeesController();
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            btn.HeaderText = "Click To Update";
+            btn.HeaderText = "#Action";
             btn.Text = "Update";
             btn.Name = "btnUpdate";
             btn.UseColumnTextForButtonValue = true;
             dgAllUsers.Columns.Add(btn);
 
             DataGridViewButtonColumn btn1 = new DataGridViewButtonColumn();
-            btn1.HeaderText = "Click To Update";
-            btn1.Text = "Update";
-            btn1.Name = "btnUpdate";
+            btn1.HeaderText = "#Action";
+            btn1.Text = "More";
+            btn1.Name = "btnMore";
             btn1.UseColumnTextForButtonValue = true;
             dgAllUsers.Columns.Add(btn1);
             try

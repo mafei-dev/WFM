@@ -60,7 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AddNewProjectController.cs" />
     <Compile Include="Controller\EmployeesController.cs" />
+    <Compile Include="Controller\IAddNewProjectController.cs" />
     <Compile Include="Controller\IEmployeesController.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -74,10 +76,12 @@
     <Compile Include="Database\UnitOfWork.cs" />
     <Compile Include="Entity\Attendance.cs" />
     <Compile Include="Entity\AttendDate.cs" />
+    <Compile Include="Entity\Project.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Entity\AdminUser.cs" />
     <Compile Include="Entity\Employee.cs" />
     <Compile Include="Entity\User.cs" />
+    <Compile Include="Models\Project.cs" />
     <Compile Include="Presenters\IAddNewEmployee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,8 +99,11 @@
     <Compile Include="Controller\EmployeeService.cs" />
     <Compile Include="Controller\IAddAttendanceController.cs" />
     <Compile Include="Controller\IEmployeeService.cs" />
+    <Compile Include="Repository\IProjectRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
+    <Compile Include="Repository\ProjectRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Validators\AddNewProjectValidation.cs" />
     <Compile Include="Validators\EmployeeValidator.cs" />
     <Compile Include="Views\AddAttendance.cs">
       <SubType>Form</SubType>
@@ -109,6 +116,12 @@
     </Compile>
     <Compile Include="Views\AddNewEmployee.Designer.cs">
       <DependentUpon>AddNewEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddNewProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddNewProject.Designer.cs">
+      <DependentUpon>AddNewProject.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Attendance.cs">
       <SubType>UserControl</SubType>
@@ -152,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AddNewEmployee.resx">
       <DependentUpon>AddNewEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddNewProject.resx">
+      <DependentUpon>AddNewProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Attendance.resx">
       <DependentUpon>Attendance.cs</DependentUpon>

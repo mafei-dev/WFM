@@ -17,7 +17,12 @@ namespace WFM.Views
         {
             InitializeComponent();
             this.name = name;
-            lblName.Text = name;
+        }
+
+        private void lblAddNewProject_Click(object sender, EventArgs e)
+        {
+            AddNewProject addNewProject = new AddNewProject();
+            addNewProject.ShowDialog(this);
         }
     }
 }

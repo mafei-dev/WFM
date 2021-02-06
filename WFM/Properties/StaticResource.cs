@@ -19,14 +19,17 @@ namespace WFM.Properties
 
         public enum UseType
         {
+            [Description("All User")] All = 0,
             [Description("Admin User")] ADMIN_USER = 1,
-            [Description("Employee User")] EMPLOYEE_USER = 2
+            [Description("Employee User")] EMPLOYEE_USER = 2,
+            [Description("Client User")] CLIENT_USER = 3
         }
 
         public static class UseTypes
         {
             public static string ADMIN_USER = "Admin";
             public static string EMPLOYEE_USER = "Employee";
+            public static string CLIENT_USER = "Client";
         }
     }
 }
