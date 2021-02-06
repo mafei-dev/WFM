@@ -122,6 +122,12 @@
     <Compile Include="Views\AddAttendance.Designer.cs">
       <DependentUpon>AddAttendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddNewAsset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddNewAsset.Designer.cs">
+      <DependentUpon>AddNewAsset.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddNewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,12 @@
     </Compile>
     <Compile Include="Views\AddNewProject.Designer.cs">
       <DependentUpon>AddNewProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Assets.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Assets.Designer.cs">
+      <DependentUpon>Assets.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\AssignEmployee.cs">
       <SubType>Form</SubType>
@@ -180,11 +192,17 @@
     <EmbeddedResource Include="Views\AddAttendance.resx">
       <DependentUpon>AddAttendance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddNewAsset.resx">
+      <DependentUpon>AddNewAsset.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AddNewEmployee.resx">
       <DependentUpon>AddNewEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AddNewProject.resx">
       <DependentUpon>AddNewProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Assets.resx">
+      <DependentUpon>Assets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AssignEmployee.resx">
       <DependentUpon>AssignEmployee.cs</DependentUpon>
@@ -217,6 +235,8 @@
     <None Include="Resources\projects_clicked.png" />
     <None Include="Resources\add_user.png" />
     <None Include="Resources\add_user_huver.png" />
+    <None Include="Resources\asset.png" />
+    <None Include="Resources\asset_color.png" />
     <Content Include="Resources\chart.png" />
     <Content Include="Resources\chart1.png" />
     <None Include="Resources\chart2.png" />

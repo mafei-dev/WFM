@@ -99,5 +99,35 @@ namespace WFM
                                    MessageBoxIcon.Information);
 
         }
+
+        private void lblAssets_Enter(object sender, EventArgs e)
+        {
+        }
+
+        private void lblAssets_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAssets_MouseEnter(object sender, EventArgs e)
+        {
+            this.lblAssets.Image = global::WFM.Properties.Resources.asset_color;
+            this.lblAssets.ForeColor = System.Drawing.Color.Yellow;
+
+        }
+
+        private void lblAssets_MouseLeave(object sender, EventArgs e)
+        {
+            this.lblAssets.Image = global::WFM.Properties.Resources.asset;
+            this.lblAssets.ForeColor = System.Drawing.Color.White;
+
+        }
+        private Assets Assets=new Assets();
+        private void lblAssets_Click(object sender, EventArgs e)
+        {
+            PnlDashboard.Controls.Clear();
+            Assets.Dock = DockStyle.Fill;
+            PnlDashboard.Controls.Add(Assets);
+        }
     }
 }
