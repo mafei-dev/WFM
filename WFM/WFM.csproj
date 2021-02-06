@@ -60,6 +60,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\EmployeesController.cs" />
+    <Compile Include="Controller\IEmployeesController.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +72,8 @@
     <Compile Include="Database\DalSession.cs" />
     <Compile Include="Database\IUnitOfWork.cs" />
     <Compile Include="Database\UnitOfWork.cs" />
+    <Compile Include="Entity\Attendance.cs" />
+    <Compile Include="Entity\AttendDate.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Entity\AdminUser.cs" />
     <Compile Include="Entity\Employee.cs" />
@@ -77,12 +81,29 @@
     <Compile Include="Presenters\IAddNewEmployee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\StaticResource.cs" />
+    <Compile Include="Repository\AdminRepository.cs" />
+    <Compile Include="Repository\AttendanceRepository.cs" />
+    <Compile Include="Repository\AttendDateRepository.cs" />
+    <Compile Include="Repository\IAdminRepository.cs" />
+    <Compile Include="Repository\IAttendDateRepository.cs" />
     <Compile Include="Repository\EmployeeRepo.cs" />
+    <Compile Include="Repository\IAttendanceRepository.cs" />
     <Compile Include="Repository\IEmployeeRepo.cs" />
-    <Compile Include="Services\Common\ModelDataAnnoationCheck.cs" />
-    <Compile Include="Services\EmployeeService.cs" />
-    <Compile Include="Services\IEmployeeService.cs" />
+    <Compile Include="Controller\AddAttendanceController.cs" />
+    <Compile Include="Controller\Common\ModelDataAnnoationCheck.cs" />
+    <Compile Include="Controller\EmployeeService.cs" />
+    <Compile Include="Controller\IAddAttendanceController.cs" />
+    <Compile Include="Controller\IEmployeeService.cs" />
+    <Compile Include="Repository\IUserRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Validators\EmployeeValidator.cs" />
+    <Compile Include="Views\AddAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddAttendance.Designer.cs">
+      <DependentUpon>AddAttendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddNewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +147,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\AddAttendance.resx">
+      <DependentUpon>AddAttendance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AddNewEmployee.resx">
       <DependentUpon>AddNewEmployee.cs</DependentUpon>
     </EmbeddedResource>

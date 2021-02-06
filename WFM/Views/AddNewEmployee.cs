@@ -2,90 +2,175 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using FluentValidation.Results;
+using WFM.Enity;
+using WFM.Controller;
 using WFM.Models;
-using WFM.Services;
+using WFM.Properties;
 using WFM.Validators;
 
 namespace WFM.Views
 {
     public partial class AddNewEmployee : Form
     {
-        private Employee _employee = new Employee();
+        private User _user;
         private IEmployeeService _employeeService = new EmployeeService();
 
         public AddNewEmployee()
         {
             InitializeComponent();
+            cboxUserType.SelectedIndex = 0;
         }
 
         EmployeeValidator _employeeValidator = new EmployeeValidator();
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
-            _employee.First_Name = txtFName.Text;
-            _employee.Last_Name = txtLName.Text;
-            _employee.Address = txtAddress.Text;
-            _employee.Birthday = dpBirthday.Value.Date;
-            _employee.NIC = txtNIC.Text;
-            _employee.Gender = rbtnMale.Checked?rbtnMale.Text:_employee.Gender;
-            _employee.Gender = rbtnFemale.Checked?rbtnFemale.Text:_employee.Gender;
-
-            errorFName.Clear();
-            ValidationResult validationResult = _employeeValidator.Validate(_employee);
-            if (!validationResult.IsValid)
+            if (cboxUserType.SelectedItem.ToString().Equals("Employee User"))
             {
-                foreach (ValidationFailure validationResultError in validationResult.Errors)
-                {
-                    if (validationResultError.PropertyName.Equals(nameof(_employee.First_Name)))
-                    {
-                        errorFName.SetError(txtFName, validationResultError.ErrorMessage);
-                    }
-                    else if (validationResultError.PropertyName.Equals(nameof(_employee.Last_Name)))
-                    {
-                        errorFName.SetError(txtLName, validationResultError.ErrorMessage);
-                    }
-                    else if (validationResultError.PropertyName.Equals(nameof(_employee.Address)))
-                    {
-                        errorFName.SetError(txtAddress, validationResultError.ErrorMessage);
-                    }
-                    else if (validationResultError.PropertyName.Equals(nameof(_employee.NIC)))
-                    {
-                        errorFName.SetError(txtNIC, validationResultError.ErrorMessage);
-                    }
-                    
-                    else if (validationResultError.PropertyName.Equals(nameof(_employee.Birthday)))
-                    {
-                        errorFName.SetError(dpBirthday, validationResultError.ErrorMessage);
-                    }
-                    
-                    
-                }
-            }
-            else
-            {
-                if (_employeeService.AddNewEmployee(_employee) > 0)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Successfully Added!\nDo you want to add more..?",
-                        "Result",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                _user = new Employee();
+                _user.User_Type = 1;
+                _user.First_Name = txtFName.Text;
+                _user.Last_Name = txtLName.Text;
+                _user.Address = txtAddress.Text;
+                _user.Birthday = dpBirthday.Value.Date;
+                _user.NIC = txtNIC.Text;
+                _user.Gender = rbtnMale.Checked ? rbtnMale.Text : _user.Gender;
+                _user.Gender = rbtnFemale.Checked ? rbtnFemale.Text : _user.Gender;
 
-                    if (dialogResult == DialogResult.Yes)
+                errorFName.Clear();
+                ValidationResult validationResult = _employeeValidator.Validate((Employee)_user);
+                if (!validationResult.IsValid)
+                {
+                    foreach (ValidationFailure validationResultError in validationResult.Errors)
                     {
-                        clearForm();
-                    }
-                    else
-                    {
-                        Close();
+                        if (validationResultError.PropertyName.Equals(nameof(_user.First_Name)))
+                        {
+                            errorFName.SetError(txtFName, validationResultError.ErrorMessage);
+                        }
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.Last_Name)))
+                        {
+                            errorFName.SetError(txtLName, validationResultError.ErrorMessage);
+                        }
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.Address)))
+                        {
+                            errorFName.SetError(txtAddress, validationResultError.ErrorMessage);
+                        }
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.NIC)))
+                        {
+                            errorFName.SetError(txtNIC, validationResultError.ErrorMessage);
+                        }
+
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.Birthday)))
+                        {
+                            errorFName.SetError(dpBirthday, validationResultError.ErrorMessage);
+                        }
+
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.User_Type)))
+                        {
+                            errorFName.SetError(cboxUserType, validationResultError.ErrorMessage);
+                        }
                     }
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Added Failed!", "Result",
-                        MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                    if (dialogResult == DialogResult.Cancel)
+                    if (_employeeService.AddNewEmployee(_user) > 0)
                     {
-                        Close();
+                        DialogResult dialogResult = MessageBox.Show("Successfully Added!\nDo you want to add more..?",
+                            "Result",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            clearForm();
+                        }
+                        else
+                        {
+                            Close();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Added Failed!", "Result",
+                            MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        if (dialogResult == DialogResult.Cancel)
+                        {
+                            Close();
+                        }
+                    }
+                }
+            }
+            else if (cboxUserType.SelectedItem.ToString().Equals("Admin User"))
+            {
+                _user = new AdminUser();
+                _user.User_Type = 2;
+                _user.First_Name = txtFName.Text;
+                _user.Last_Name = txtLName.Text;
+                _user.Address = txtAddress.Text;
+                _user.Birthday = dpBirthday.Value.Date;
+                _user.NIC = txtNIC.Text;
+                _user.Gender = rbtnMale.Checked ? rbtnMale.Text : _user.Gender;
+                _user.Gender = rbtnFemale.Checked ? rbtnFemale.Text : _user.Gender;
+
+
+                errorFName.Clear();
+                ValidationResult validationResult = _employeeValidator.Validate((Employee)_user);
+                if (!validationResult.IsValid)
+                {
+                    foreach (ValidationFailure validationResultError in validationResult.Errors)
+                    {
+                        if (validationResultError.PropertyName.Equals(nameof(_user.First_Name)))
+                        {
+                            errorFName.SetError(txtFName, validationResultError.ErrorMessage);
+                        }
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.Last_Name)))
+                        {
+                            errorFName.SetError(txtLName, validationResultError.ErrorMessage);
+                        }
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.Address)))
+                        {
+                            errorFName.SetError(txtAddress, validationResultError.ErrorMessage);
+                        }
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.NIC)))
+                        {
+                            errorFName.SetError(txtNIC, validationResultError.ErrorMessage);
+                        }
+
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.Birthday)))
+                        {
+                            errorFName.SetError(dpBirthday, validationResultError.ErrorMessage);
+                        }
+
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.User_Type)))
+                        {
+                            errorFName.SetError(cboxUserType, validationResultError.ErrorMessage);
+                        }
+                    }
+                }
+                else
+                {
+                    if (_employeeService.AddNewEmployee(_user) > 0)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Successfully Added!\nDo you want to add more..?",
+                            "Result",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            clearForm();
+                        }
+                        else
+                        {
+                            Close();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Added Failed!", "Result",
+                            MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        if (dialogResult == DialogResult.Cancel)
+                        {
+                            Close();
+                        }
                     }
                 }
             }
@@ -134,22 +219,32 @@ namespace WFM.Views
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void dpBirthday_ValueChanged(object sender, EventArgs e)
         {
-
         }
 
         private void txtNIC_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
+        }
 
+        private void cboxUserType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboxUserType.SelectedItem.ToString().Equals("Admin User"))
+            {
+                lblUserId.Visible = false;
+                txtUserID.Visible = false;
+            }
+            else if (cboxUserType.SelectedItem.ToString().Equals("Employee User"))
+            {
+                lblUserId.Visible = true;
+                txtUserID.Visible = true;
+            }
         }
     }
 }

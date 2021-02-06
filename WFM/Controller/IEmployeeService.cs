@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
-using WFM.Models;
+using WFM.Enity;
 
-namespace WFM.Services
+namespace WFM.Controller
 {
     public interface IEmployeeService
     {
-        int AddNewEmployee(Employee employee);
+        
+        int AddNewEmployee(User user);
         List<Employee> SearchEMPByData(string data);
     }
 }

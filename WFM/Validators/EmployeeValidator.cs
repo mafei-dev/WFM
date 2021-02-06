@@ -1,6 +1,6 @@
 ﻿using System;
 using FluentValidation;
-using WFM.Models;
+using WFM.Enity;
 
 namespace WFM.Validators
 {
@@ -31,7 +31,10 @@ namespace WFM.Validators
 
             RuleFor(employee => employee.Birthday)
                 .Must(CheckBirthday).WithMessage("Birthday must be before today.");
-
+            
+            RuleFor(employee => employee.User_Type)
+                .NotEmpty().WithMessage("Please select the user type.")
+                .NotNull().WithMessage("Please select the user type.");
         }
 
         protected bool CheckBirthday(DateTime birthday)

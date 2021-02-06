@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WFM.Models;
+using WFM.Enity;
 
 namespace WFM.Presenters
 {

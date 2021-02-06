@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace WFM.Services.Common
+namespace WFM.Controller.Common
 {
     class ModelDataAnnoationCheck
     {

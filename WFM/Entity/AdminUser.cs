@@ -1,6 +1,8 @@
-﻿namespace WFM.Models
+﻿using WFM.Enity;
+
+namespace WFM.Models
 {
-    public class AdminUser 
+    public class AdminUser :User
     {
         
     }

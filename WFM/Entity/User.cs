@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WFM.Models
+namespace WFM.Enity
 {
     public class User
     {
@@ -11,5 +11,9 @@ namespace WFM.Models
         public string User_Id { get; set; }
         public string NIC { get; set; }
         public string Gender { get; set; }
+
+        public int User_Type { get; set; }
+        
+        public string EMP_Id { get; set; }
     }
 }

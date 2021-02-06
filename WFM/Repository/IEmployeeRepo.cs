@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WFM.Models;
+using WFM.Enity;
 
 namespace WFM.Repository
 {
@@ -13,5 +13,6 @@ namespace WFM.Repository
         int UpdateEMP(Employee employee);
         List<Employee> SearchEMPByData(string data);
         Employee GetById(string id);
+        Employee GetByEMPId(string EMPId);
     }
 }
