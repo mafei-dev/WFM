@@ -1,9 +1,12 @@
-﻿using WFM.Entity;
+﻿using System;
+using System.Collections.Generic;
+using WFM.Entity;
 
 namespace WFM.Repository
 {
     public interface ITaskExpenseRepository
     {
         int addNewTaskExpense(TaskExpense taskExpense);
+        List<TaskExpense> GetAllEXPsByProjectTaskId(string projectTaskId);
     }
 }

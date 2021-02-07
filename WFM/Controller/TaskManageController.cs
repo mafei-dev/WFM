@@ -10,6 +10,11 @@ namespace WFM.Controller
     public class TaskManageController
     {
         private IProjectTaskRepository _projectTaskRepository;
+        private IAssetRepository _assetRepository;
+        private ITaskEmpExpenseRepository _taskEmpExpenseRepository;
+        private ITaskAssetExpenseRepository _taskAssetExpenseRepository;
+        private ITaskExpenseRepository _taskExpenseRepository;
+        private ITaskOtherExpenseRepository _taskOtherExpenseRepository;
 
         public List<ProjectTaskNormalised> GetAllTasksForProject(string projectId)
         {
@@ -32,7 +37,6 @@ namespace WFM.Controller
             }
         }
 
-        private IAssetRepository _assetRepository;
 
         public List<Asset> GetAllAsset()
         {
@@ -55,7 +59,6 @@ namespace WFM.Controller
             }
         }
 
-        private ITaskEmpExpenseRepository _taskEmpExpenseRepository;
 
         public bool AddTaskEmpExpense(TaskEmpExpense taskEmpExpense)
         {
@@ -87,7 +90,6 @@ namespace WFM.Controller
                         unitOfWork.Rollback();
                         return false;
                     }
-                    
                 }
                 catch
                 {
@@ -97,8 +99,6 @@ namespace WFM.Controller
             }
         }
 
-        private ITaskAssetExpenseRepository _taskAssetExpenseRepository;
-        private ITaskExpenseRepository _taskExpenseRepository;
 
         public bool AddAssetExpense(TaskAssetExpense taskAssetExpense)
         {
@@ -141,6 +141,46 @@ namespace WFM.Controller
         }
 
 
+        public bool AddOtherExpense(TaskOtherExpense taskOtherExpense)
+        {
+            using (DalSession dalSession = new DalSession())
+            {
+                UnitOfWork unitOfWork = dalSession.UnitOfWork();
+                unitOfWork.Begin();
+                try
+                {
+                    _taskOtherExpenseRepository = new TaskOtherExpenseRepository(unitOfWork);
+                    _taskExpenseRepository = new TaskExpenseRepository(unitOfWork);
+                    taskOtherExpense.Task_Other_Expense_Id = Guid.NewGuid().ToString();
+                    taskOtherExpense.TaskExpense.Task_Expense_Id = Guid.NewGuid().ToString();
+
+                    if (_taskExpenseRepository.addNewTaskExpense(taskOtherExpense.TaskExpense) == 1)
+                    {
+                        if (_taskOtherExpenseRepository.addNewTaskOtherExpense(taskOtherExpense) == 1)
+                        {
+                            unitOfWork.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            unitOfWork.Rollback();
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        unitOfWork.Rollback();
+                        return false;
+                    }
+                }
+                catch
+                {
+                    unitOfWork.Rollback();
+                    throw;
+                }
+            }
+        }
+
         private EmployeeRepo _employeeRepo;
 
         public List<Employee> GetAllEmp()
@@ -156,6 +196,28 @@ namespace WFM.Controller
 
                     unitOfWork.Commit();
                     return allEmPs;
+                }
+                catch
+                {
+                    unitOfWork.Rollback();
+                    throw;
+                }
+            }
+        }
+
+
+        public List<TaskExpense> GetAllExpensesForTask(string projectTaskId)
+        {
+            using (DalSession dalSession = new DalSession())
+            {
+                UnitOfWork unitOfWork = dalSession.UnitOfWork();
+                unitOfWork.Begin();
+                try
+                {
+                    _taskExpenseRepository = new TaskExpenseRepository(unitOfWork);
+                    List<TaskExpense> expenses = _taskExpenseRepository.GetAllEXPsByProjectTaskId(projectTaskId);
+                    unitOfWork.Commit();
+                    return expenses;
                 }
                 catch
                 {

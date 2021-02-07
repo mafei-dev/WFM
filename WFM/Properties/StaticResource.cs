@@ -54,5 +54,17 @@ namespace WFM.Properties
             "Canceled",
             "Complete"
         };
+        
+        public static List<string> EXP_TYPE = new List<string>()
+        {
+            "Utility bills",
+            "Lease ",
+            "Vehicle insurance",
+            "Vehicle maintenance",
+            "Eating out",
+            "Parking",
+            "Fuel ",
+            "Other"
+        };
     }
 }
