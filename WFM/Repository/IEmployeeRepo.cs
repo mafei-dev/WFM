@@ -14,5 +14,7 @@ namespace WFM.Repository
         List<Employee> SearchEMPByData(string data);
         Employee GetById(string id);
         Employee GetByEMPId(string EMPId);
+
+        List<Employee> GetAllEMPs();
     }
 }

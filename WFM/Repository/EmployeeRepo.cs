@@ -69,5 +69,20 @@ namespace WFM.Repository
 	                            [User].EMP_Id = @EMPId";
             return unitOfWork.Connection.Query<Employee>(sql, parameters, unitOfWork.Transaction).SingleOrDefault();
         }
+
+        public List<Employee> GetAllEMPs()
+        {
+	        string sql = $@"SELECT
+	                            [User].First_Name, 
+	                            [User].Last_Name, 
+	                            [User].Address, 
+	                            [User].User_Id, 
+	                            [User].NIC
+                            FROM
+	                            dbo.[User]
+                            WHERE
+	                            [User].User_Type = {(int) StaticResource.UseType.EMPLOYEE_USER}";
+            return unitOfWork.Connection.Query<Employee>(sql, null, unitOfWork.Transaction).ToList();
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using WFM.Database;
+using WFM.Enity;
 using WFM.Entity;
 using WFM.Repository;
 
@@ -64,18 +65,29 @@ namespace WFM.Controller
                 unitOfWork.Begin();
                 try
                 {
+                    _taskExpenseRepository = new TaskExpenseRepository(unitOfWork);
                     _taskEmpExpenseRepository = new TaskEmpExpenseRepository(unitOfWork);
+                    taskEmpExpense.TaskExpense.Task_Expense_Id = Guid.NewGuid().ToString();
                     taskEmpExpense.Task_Emp_Expense_Id = Guid.NewGuid().ToString();
-                    if (_taskEmpExpenseRepository.addNewTaskEmpExpense(taskEmpExpense) == 1)
+                    if (_taskExpenseRepository.addNewTaskExpense(taskEmpExpense.TaskExpense) == 1)
                     {
-                        unitOfWork.Commit();
-                        return true;
+                        if (_taskEmpExpenseRepository.addNewTaskEmpExpense(taskEmpExpense) == 1)
+                        {
+                            unitOfWork.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            unitOfWork.Rollback();
+                            return false;
+                        }
                     }
                     else
                     {
                         unitOfWork.Rollback();
                         return false;
                     }
+                    
                 }
                 catch
                 {
@@ -119,6 +131,31 @@ namespace WFM.Controller
                         unitOfWork.Rollback();
                         return false;
                     }
+                }
+                catch
+                {
+                    unitOfWork.Rollback();
+                    throw;
+                }
+            }
+        }
+
+
+        private EmployeeRepo _employeeRepo;
+
+        public List<Employee> GetAllEmp()
+        {
+            using (DalSession dalSession = new DalSession())
+            {
+                UnitOfWork unitOfWork = dalSession.UnitOfWork();
+                unitOfWork.Begin();
+                try
+                {
+                    _employeeRepo = new EmployeeRepo(unitOfWork);
+                    List<Employee> allEmPs = _employeeRepo.GetAllEMPs();
+
+                    unitOfWork.Commit();
+                    return allEmPs;
                 }
                 catch
                 {
