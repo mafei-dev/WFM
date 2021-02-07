@@ -62,12 +62,14 @@
   <ItemGroup>
     <Compile Include="Controller\AddNewAssetController.cs" />
     <Compile Include="Controller\AddNewProjectController.cs" />
+    <Compile Include="Controller\AddNewProjectTaskController.cs" />
     <Compile Include="Controller\AssetController.cs" />
     <Compile Include="Controller\AssignEmployeeController.cs" />
     <Compile Include="Controller\EmployeesController.cs" />
     <Compile Include="Controller\IAddNewProjectController.cs" />
     <Compile Include="Controller\IEmployeesController.cs" />
     <Compile Include="Controller\ProjectsController.cs" />
+    <Compile Include="Controller\TaskManageController.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +85,11 @@
     <Compile Include="Entity\AttendDate.cs" />
     <Compile Include="Entity\Project.cs" />
     <Compile Include="Entity\ProjectEmployee.cs" />
+    <Compile Include="Entity\ProjectTask.cs" />
+    <Compile Include="Entity\TaskAssetExpense.cs" />
+    <Compile Include="Entity\TaskEmpExpense.cs" />
+    <Compile Include="Entity\TaskExpense.cs" />
+    <Compile Include="Entity\TaskOtherExpense.cs" />
     <Compile Include="Exception\EmployeeAlreadyExistException.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Entity\AdminUser.cs" />
@@ -111,9 +118,19 @@
     <Compile Include="Controller\IEmployeeService.cs" />
     <Compile Include="Repository\IProjectEmployeeRepository.cs" />
     <Compile Include="Repository\IProjectRepository.cs" />
+    <Compile Include="Repository\IProjectTaskRepository.cs" />
+    <Compile Include="Repository\ITaskAssetExpenseRepository.cs" />
+    <Compile Include="Repository\ITaskEmpExpenseRepository.cs" />
+    <Compile Include="Repository\ITaskExpenseRepository.cs" />
+    <Compile Include="Repository\ITaskOtherExpenseRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Repository\ProjectEmployeeRepository.cs" />
     <Compile Include="Repository\ProjectRepository.cs" />
+    <Compile Include="Repository\ProjectTaskRepository.cs" />
+    <Compile Include="Repository\TaskAssetExpenseRepository.cs" />
+    <Compile Include="Repository\TaskEmpExpenseRepository.cs" />
+    <Compile Include="Repository\TaskExpenseRepository.cs" />
+    <Compile Include="Repository\TaskOtherExpenseRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Validators\AddNewProjectValidation.cs" />
     <Compile Include="Validators\EmployeeValidator.cs" />

@@ -29,6 +29,8 @@ namespace WFM.Views
             projects = _projectsController.GetAllProjects();
             if (projects.Count > 0)
             {
+
+                dgAllProjects.ColumnCount = 7;
                 // dgAllProjects.DataSource =
                 DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
                 btn.HeaderText = "#Action";
@@ -39,7 +41,7 @@ namespace WFM.Views
                 dgAllProjects.Columns.Add(btn);
 
 
-                dgAllProjects.ColumnCount = 7;
+          
                 dgAllProjects.Columns[0].Name = "Project Name";
                 dgAllProjects.Columns[1].Name = "Project Note";
                 dgAllProjects.Columns[2].Name = "Status";
@@ -87,7 +89,7 @@ namespace WFM.Views
 
         private void dgAllProjects_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0)
+            if (e.ColumnIndex == 7)
             {
                 ProjectWithClient selectedProject = projects[e.RowIndex];
                 ProjectManagementOptionPane projectManagementOptionPane = new ProjectManagementOptionPane(selectedProject);

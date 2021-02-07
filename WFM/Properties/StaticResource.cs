@@ -32,6 +32,13 @@ namespace WFM.Properties
             public static string CLIENT_USER = "Client";
         }
 
+        public static class ExpenseTypes
+        {
+            public static string EMPLOYEE_EXPENSES = "Employee expenses";
+            public static string ASSET_EXPENSES = "Asset expenses";
+            public static string OTHER_EXPENSES = "Other expenses";
+        }
+
         public static List<string> PROJECT_STATUS = new List<string>()
         {
             "Not Started",
