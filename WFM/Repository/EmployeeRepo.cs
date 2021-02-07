@@ -84,5 +84,16 @@ namespace WFM.Repository
 	                            [User].User_Type = {(int) StaticResource.UseType.EMPLOYEE_USER}";
             return unitOfWork.Connection.Query<Employee>(sql, null, unitOfWork.Transaction).ToList();
         }
+
+        public int GetTotalEmployees()
+        {
+	        string sql = $@"SELECT
+								COUNT([User].User_Id)
+							FROM
+								dbo.[User]
+							WHERE
+								[User].User_Type = 2";
+	        return unitOfWork.Connection.Query<int>(sql, null, unitOfWork.Transaction).SingleOrDefault();
+        }
     }
 }

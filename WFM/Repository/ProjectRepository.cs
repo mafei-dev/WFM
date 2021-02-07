@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.Linq;
 using Dapper;
 using WFM.Database;
 using WFM.Entity;
@@ -55,6 +56,16 @@ namespace WFM.Repository
 							INNER JOIN dbo.[User] ON Project.Client_Id = [User].User_Id;";
 
             return unitOfWork.Connection.Query<ProjectWithClient>(sql, null, unitOfWork.Transaction).AsList();
+        }
+
+        public int GetTotalProjects()
+        {
+	        string sql = $@"SELECT
+							COUNT(Project.Project_Id)
+						FROM
+							dbo.Project;";
+
+	        return unitOfWork.Connection.Query<int>(sql, null, unitOfWork.Transaction).SingleOrDefault();
         }
     }
 }

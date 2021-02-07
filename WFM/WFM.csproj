@@ -68,6 +68,8 @@
     <Compile Include="Controller\EmployeesController.cs" />
     <Compile Include="Controller\IAddNewProjectController.cs" />
     <Compile Include="Controller\IEmployeesController.cs" />
+    <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\MetricsController.cs" />
     <Compile Include="Controller\ProjectsController.cs" />
     <Compile Include="Controller\TaskManageController.cs" />
     <Compile Include="Dashboard.cs">
@@ -80,6 +82,7 @@
     <Compile Include="Database\DalSession.cs" />
     <Compile Include="Database\IUnitOfWork.cs" />
     <Compile Include="Database\UnitOfWork.cs" />
+    <Compile Include="Entity\Admin.cs" />
     <Compile Include="Entity\Asset.cs" />
     <Compile Include="Entity\Attendance.cs" />
     <Compile Include="Entity\AttendDate.cs" />
@@ -97,6 +100,7 @@
     <Compile Include="Entity\User.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ProjectEmployee.cs" />
+    <Compile Include="Models\TotalDetail.cs" />
     <Compile Include="Presenters\IAddNewEmployee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +137,7 @@
     <Compile Include="Repository\TaskOtherExpenseRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Validators\AddNewProjectValidation.cs" />
+    <Compile Include="Validators\AdminValidator.cs" />
     <Compile Include="Validators\EmployeeValidator.cs" />
     <Compile Include="Views\AddAttendance.cs">
       <SubType>Form</SubType>
@@ -169,6 +174,12 @@
     </Compile>
     <Compile Include="Views\Assets.Designer.cs">
       <DependentUpon>Assets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ProjectManagementOptionPane.cs">
       <SubType>Form</SubType>
@@ -242,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Assets.resx">
       <DependentUpon>Assets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ProjectManagementOptionPane.resx">
       <DependentUpon>ProjectManagementOptionPane.cs</DependentUpon>

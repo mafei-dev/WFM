@@ -16,5 +16,6 @@ namespace WFM.Repository
         Employee GetByEMPId(string EMPId);
 
         List<Employee> GetAllEMPs();
+        int GetTotalEmployees();
     }
 }

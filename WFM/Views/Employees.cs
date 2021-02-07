@@ -19,7 +19,9 @@ namespace WFM.Views
         public Employees()
         {
             InitializeComponent();
-            LoadTable();
+            txtSearchEMP.Text = "*";
+            _employeesController = new EmployeesController();
+            LoadTable(_employeesController.GetAllUsers());
         }
 
         private void btnUpdate(object sender, EventArgs e)
@@ -44,19 +46,22 @@ namespace WFM.Views
         {
             AddAttendance addAttendance = new AddAttendance();
             addAttendance.ShowDialog(this);
+            SearchEMPs();
         }
 
         private void dgAllUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             MessageBox.Show($"{e.RowIndex}");
-/*            if (e.ColumnIndex == 3) 
-            {
-                
-            }*/
+            /*            if (e.ColumnIndex == 3) 
+                        {
+
+                        }*/
         }
 
-        private void LoadTable()
+        private void LoadTable(List<User> allUsers)
         {
+            dgAllUsers.Rows.Clear();
+            dgAllUsers.Refresh();
             dgAllUsers.ColumnCount = 8;
             dgAllUsers.Columns[0].Name = "User Type";
             dgAllUsers.Columns[1].Name = "EMP Id";
@@ -83,17 +88,17 @@ namespace WFM.Views
             dgAllUsers.Columns.Add(btn1);
             try
             {
-                List<User> allUsers = _employeesController.GetAllUsers();
+
                 foreach (User user in allUsers)
                 {
-                    
+
 
                     string type = null;
-                    if (user.User_Type == (int) StaticResource.UseType.ADMIN_USER)
+                    if (user.User_Type == (int)StaticResource.UseType.ADMIN_USER)
                     {
                         type = StaticResource.UseTypes.ADMIN_USER;
                     }
-                    else if (user.User_Type == (int) StaticResource.UseType.EMPLOYEE_USER)
+                    else if (user.User_Type == (int)StaticResource.UseType.EMPLOYEE_USER)
                     {
                         type = StaticResource.UseTypes.EMPLOYEE_USER;
                     }
@@ -117,6 +122,32 @@ namespace WFM.Views
                 throw;
             }
             dgAllUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void txtSearchEMP_TextChanged(object sender, EventArgs e)
+        {
+            SearchEMPs();
+
+
+
+        }
+
+        private void SearchEMPs() {
+            if (txtSearchEMP.Text.Length > 0)
+            {
+                _employeesController = new EmployeesController();
+
+                if (txtSearchEMP.Text == "*")
+                {
+                    LoadTable(_employeesController.GetAllUsers());
+                }
+                else
+                {
+                    LoadTable(_employeesController.SearchEmployeeByName(txtSearchEMP.Text));
+
+                }
+
+            }
         }
     }
 }

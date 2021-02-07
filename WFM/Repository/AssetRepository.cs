@@ -32,7 +32,16 @@ namespace WFM.Repository
 	                        Asset.QTY
                         FROM
 	                        dbo.Asset;";
-            return unitOfWork.Connection.Query<Asset>(sql,null,unitOfWork.Transaction).ToList();
+            return unitOfWork.Connection.Query<Asset>(sql, null, unitOfWork.Transaction).ToList();
+        }
+
+        public int GetTotalAssets()
+        {
+            string sql = $@"SELECT
+	                            COUNT(Asset.Asset_Id)
+                            FROM
+	                            dbo.Asset";
+            return unitOfWork.Connection.Query<int>(sql, null, unitOfWork.Transaction).SingleOrDefault();
         }
     }
 }

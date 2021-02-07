@@ -22,13 +22,14 @@ namespace WFM.Views
         }
 
         EmployeeValidator _employeeValidator = new EmployeeValidator();
+        AdminValidator _adminValidator = new AdminValidator();
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (cboxUserType.SelectedItem.ToString().Equals("Employee User"))
             {
                 _user = new Employee();
-                _user.User_Type = 1;
+                _user.User_Type =2;
                 _user.First_Name = txtFName.Text;
                 _user.Last_Name = txtLName.Text;
                 _user.Address = txtAddress.Text;
@@ -73,7 +74,7 @@ namespace WFM.Views
                 }
                 else
                 {
-                    if (_employeeService.AddNewEmployee(_user) > 0)
+                    if (_employeeService.AddNewEmployee(_user, StaticResource.UseType.EMPLOYEE_USER) > 0)
                     {
                         DialogResult dialogResult = MessageBox.Show("Successfully Added!\nDo you want to add more..?",
                             "Result",
@@ -102,7 +103,7 @@ namespace WFM.Views
             else if (cboxUserType.SelectedItem.ToString().Equals("Admin User"))
             {
                 _user = new AdminUser();
-                _user.User_Type = 2;
+                _user.User_Type = 1;
                 _user.First_Name = txtFName.Text;
                 _user.Last_Name = txtLName.Text;
                 _user.Address = txtAddress.Text;
@@ -113,7 +114,7 @@ namespace WFM.Views
 
 
                 errorFName.Clear();
-                ValidationResult validationResult = _employeeValidator.Validate((Employee)_user);
+                ValidationResult validationResult = _adminValidator.Validate((AdminUser)_user);
                 if (!validationResult.IsValid)
                 {
                     foreach (ValidationFailure validationResultError in validationResult.Errors)
@@ -148,7 +149,7 @@ namespace WFM.Views
                 }
                 else
                 {
-                    if (_employeeService.AddNewEmployee(_user) > 0)
+                    if (_employeeService.AddNewEmployee(_user, StaticResource.UseType.ADMIN_USER) > 0)
                     {
                         DialogResult dialogResult = MessageBox.Show("Successfully Added!\nDo you want to add more..?",
                             "Result",

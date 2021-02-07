@@ -7,5 +7,6 @@ namespace WFM.Repository
     {
         int AddNewAsset(Asset asset);
         List<Asset> GetAllAssets();
+        int GetTotalAssets();
     }
 }

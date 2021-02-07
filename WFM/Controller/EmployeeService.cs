@@ -5,6 +5,7 @@ using System.Text;
 using WFM.Database;
 using WFM.Enity;
 using WFM.Models;
+using WFM.Properties;
 using WFM.Repository;
 
 namespace WFM.Controller
@@ -14,9 +15,9 @@ namespace WFM.Controller
         private IEmployeeRepo _employeeRepo;
         private IAdminRepository _adminRepository;
 
-        public int AddNewEmployee(User user)
+        public int AddNewEmployee(User user, StaticResource.UseType useType)
         {
-            if (user.Equals(typeof(Employee)))
+            if (useType== StaticResource.UseType.EMPLOYEE_USER)
             {
                 using (DalSession dalSession = new DalSession())
                 {
@@ -45,7 +46,7 @@ namespace WFM.Controller
                     }
                 }
             }
-            else if (user.Equals(typeof(AdminUser)))
+            else if (useType == StaticResource.UseType.ADMIN_USER)
             {
                 using (DalSession dalSession = new DalSession())
                 {

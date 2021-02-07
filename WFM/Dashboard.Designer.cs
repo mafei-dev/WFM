@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PnlDashboard = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.LblEmployee = new System.Windows.Forms.Label();
             this.LblProjects = new System.Windows.Forms.Label();
             this.lblAssets = new System.Windows.Forms.Label();
             this.LblDashboard = new System.Windows.Forms.Label();
+            this.PnlDashboard = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,18 +46,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(114, 450);
+            this.panel1.Size = new System.Drawing.Size(114, 548);
             this.panel1.TabIndex = 0;
-            // 
-            // PnlDashboard
-            // 
-            this.PnlDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.PnlDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlDashboard.Location = new System.Drawing.Point(114, 0);
-            this.PnlDashboard.Name = "PnlDashboard";
-            this.PnlDashboard.Size = new System.Drawing.Size(686, 450);
-            this.PnlDashboard.TabIndex = 1;
-            this.PnlDashboard.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlDashboard_Paint);
             // 
             // tableLayoutPanel1
             // 
@@ -76,7 +66,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(114, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(114, 548);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // LblEmployee
@@ -146,17 +136,27 @@
             this.LblDashboard.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.LblDashboard.Click += new System.EventHandler(this.LblDashboard_Click);
             // 
+            // PnlDashboard
+            // 
+            this.PnlDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.PnlDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlDashboard.Location = new System.Drawing.Point(114, 0);
+            this.PnlDashboard.Name = "PnlDashboard";
+            this.PnlDashboard.Size = new System.Drawing.Size(686, 548);
+            this.PnlDashboard.TabIndex = 1;
+            this.PnlDashboard.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlDashboard_Paint);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 548);
             this.Controls.Add(this.PnlDashboard);
             this.Controls.Add(this.panel1);
             this.Name = "Dashboard";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

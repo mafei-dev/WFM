@@ -7,5 +7,6 @@ namespace WFM.Repository
     {
         int AddNewProject(Project project);
         List<ProjectWithClient> GetAllProjects();
+        int GetTotalProjects();
     }
 }
