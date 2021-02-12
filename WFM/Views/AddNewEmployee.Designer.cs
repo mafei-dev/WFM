@@ -1,4 +1,4 @@
-﻿﻿using WFM.Presenters;
+﻿
 
 namespace WFM.Views
 {
@@ -173,9 +173,9 @@ namespace WFM.Views
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.cboxUserType, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnSubmit, 1, 10);
             this.tableLayoutPanel1.Controls.Add(this.txtUserID, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.lblUserId, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.btnSubmit, 1, 10);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -191,7 +191,7 @@ namespace WFM.Views
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(519, 392);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(519, 319);
             this.tableLayoutPanel1.TabIndex = 3;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -268,7 +268,8 @@ namespace WFM.Views
             this.cboxUserType.FormattingEnabled = true;
             this.cboxUserType.Items.AddRange(new object[] {
             "Employee User",
-            "Admin User"});
+            "Admin User",
+            "Client"});
             this.cboxUserType.Location = new System.Drawing.Point(90, 3);
             this.cboxUserType.Name = "cboxUserType";
             this.cboxUserType.Size = new System.Drawing.Size(406, 21);
@@ -278,7 +279,8 @@ namespace WFM.Views
             // btnSubmit
             // 
             this.btnSubmit.AutoSize = true;
-            this.btnSubmit.Location = new System.Drawing.Point(90, 294);
+            this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSubmit.Location = new System.Drawing.Point(343, 294);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(153, 23);
             this.btnSubmit.TabIndex = 11;
@@ -310,7 +312,7 @@ namespace WFM.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(519, 392);
+            this.ClientSize = new System.Drawing.Size(519, 319);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;

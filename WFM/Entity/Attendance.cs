@@ -10,4 +10,11 @@ namespace WFM.Entity
         public StaticResource.AttendanceType Type { get; set; }
         public AttendDate AttendDate { get; set; }
     }
+
+    public class AttendanceView : Attendance
+    {
+        public TimeSpan Datetime { get; set; }
+    }
+
+
 }

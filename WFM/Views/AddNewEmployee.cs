@@ -7,14 +7,15 @@ using WFM.Controller;
 using WFM.Models;
 using WFM.Properties;
 using WFM.Validators;
+using WFM.Entity;
 
 namespace WFM.Views
 {
     public partial class AddNewEmployee : Form
     {
         private User _user;
-        private IEmployeeService _employeeService = new EmployeeService();
-
+        private IEmployeeController _employeeService = new EmployeeController();
+        
         public AddNewEmployee()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace WFM.Views
 
         EmployeeValidator _employeeValidator = new EmployeeValidator();
         AdminValidator _adminValidator = new AdminValidator();
+        ClientValidator _clientValidator = new ClientValidator();
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -123,6 +125,88 @@ namespace WFM.Views
                         {
                             errorFName.SetError(txtFName, validationResultError.ErrorMessage);
                         }
+
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.Last_Name)))
+                        {
+                            errorFName.SetError(txtLName, validationResultError.ErrorMessage);
+                        }
+
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.Address)))
+                        {
+                            errorFName.SetError(txtAddress, validationResultError.ErrorMessage);
+                        }
+
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.NIC)))
+                        {
+                            errorFName.SetError(txtNIC, validationResultError.ErrorMessage);
+                        }
+
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.Birthday)))
+                        {
+                            errorFName.SetError(dpBirthday, validationResultError.ErrorMessage);
+                        }
+
+                        else if (validationResultError.PropertyName.Equals(nameof(_user.User_Type)))
+                        {
+                            errorFName.SetError(cboxUserType, validationResultError.ErrorMessage);
+                        }
+
+                    }
+                }
+                else
+                {
+                    if (_employeeService.AddNewEmployee(_user, StaticResource.UseType.ADMIN_USER) > 0)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Successfully Added!\nDo you want to add more..?",
+                            "Result",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            clearForm();
+                        }
+                        else
+                        {
+                            Close();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Added Failed!", "Result",
+                            MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        if (dialogResult == DialogResult.Cancel)
+                        {
+                            Close();
+                        }
+                    }
+                }
+            }
+
+
+            else if (cboxUserType.SelectedItem.ToString().Equals("Client"))
+            {
+                
+                _user = new Client();
+                _user.User_Type = 3;
+                _user.First_Name = txtFName.Text;
+                _user.Last_Name = txtLName.Text;
+                _user.Address = txtAddress.Text;
+                _user.Birthday = dpBirthday.Value.Date;
+                _user.NIC = txtNIC.Text;
+                _user.Gender = rbtnMale.Checked ? rbtnMale.Text : _user.Gender;
+                _user.Gender = rbtnFemale.Checked ? rbtnFemale.Text : _user.Gender;
+
+                
+                errorFName.Clear();
+                ValidationResult validationResult = _clientValidator.Validate((Client)_user);
+                if (!validationResult.IsValid)
+                {
+                    foreach (ValidationFailure validationResultError in validationResult.Errors)
+                    {
+                        if (validationResultError.PropertyName.Equals(nameof(_user.First_Name)))
+                        {
+                            errorFName.SetError(txtFName, validationResultError.ErrorMessage);
+                        }
                         else if (validationResultError.PropertyName.Equals(nameof(_user.Last_Name)))
                         {
                             errorFName.SetError(txtLName, validationResultError.ErrorMessage);
@@ -149,7 +233,7 @@ namespace WFM.Views
                 }
                 else
                 {
-                    if (_employeeService.AddNewEmployee(_user, StaticResource.UseType.ADMIN_USER) > 0)
+                    if (_employeeService.AddNewEmployee(_user, StaticResource.UseType.CLIENT_USER) > 0)
                     {
                         DialogResult dialogResult = MessageBox.Show("Successfully Added!\nDo you want to add more..?",
                             "Result",
@@ -236,15 +320,16 @@ namespace WFM.Views
 
         private void cboxUserType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboxUserType.SelectedItem.ToString().Equals("Admin User"))
-            {
-                lblUserId.Visible = false;
-                txtUserID.Visible = false;
-            }
-            else if (cboxUserType.SelectedItem.ToString().Equals("Employee User"))
+            if (cboxUserType.SelectedItem.ToString().Equals("Employee User"))
             {
                 lblUserId.Visible = true;
                 txtUserID.Visible = true;
+                
+            }
+            else 
+            {
+                lblUserId.Visible = false;
+                txtUserID.Visible = false;
             }
         }
     }

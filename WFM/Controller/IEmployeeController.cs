@@ -4,7 +4,7 @@ using WFM.Properties;
 
 namespace WFM.Controller
 {
-    public interface IEmployeeService
+    public interface IEmployeeController
     {
         
         int AddNewEmployee(User user, StaticResource.UseType useType);

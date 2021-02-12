@@ -34,8 +34,7 @@ namespace WFM.Views
 
         private void guna2ImageButton2_Click(object sender, EventArgs e)
         {
-            AddNewEmployee addNewEmployee = new AddNewEmployee();
-            addNewEmployee.ShowDialog(this);
+            
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -51,11 +50,12 @@ namespace WFM.Views
 
         private void dgAllUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show($"{e.RowIndex}");
-            /*            if (e.ColumnIndex == 3) 
-                        {
-
-                        }*/
+            if (e.ColumnIndex == 9)
+            {
+                MessageBox.Show($"{e.RowIndex}");
+                AddAttendance addAttendance = new AddAttendance();
+                addAttendance.ShowDialog(this);
+            }
         }
 
         private void LoadTable(List<User> allUsers)
@@ -148,6 +148,18 @@ namespace WFM.Views
                 }
 
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddNewEmployee addNewEmployee = new AddNewEmployee();
+            addNewEmployee.ShowDialog(this);
+        }
+
+        private void btnAttendanceReport_Click(object sender, EventArgs e)
+        {
+            AttendanceReport attendanceReport = new AttendanceReport();
+            attendanceReport.ShowDialog(this);
         }
     }
 }

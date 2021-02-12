@@ -11,4 +11,12 @@ namespace WFM.Entity
         public StaticResource.AttendDateType Type { get; set; }
         public User User { get; set; }
     }
+
+    public class AttendDateView : User 
+    {
+        public string Attend_Date_Id { get; set; }
+        public DateTime Date { get; set; }
+        public int Type { get; set; }
+
+    } 
 }

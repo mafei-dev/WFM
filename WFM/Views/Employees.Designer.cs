@@ -32,9 +32,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgAllUsers = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtSearchEMP = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnAttendanceReport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -91,34 +92,6 @@
             this.dgAllUsers.TabIndex = 0;
             this.dgAllUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAllUsers_CellContentClick);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.panel2.Controls.Add(this.guna2ImageButton2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(579, 73);
-            this.panel2.TabIndex = 0;
-            // 
-            // guna2ImageButton2
-            // 
-            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.CheckedState.Parent = this.guna2ImageButton2;
-            this.guna2ImageButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2ImageButton2.HoverState.Image = global::WFM.Properties.Resources.add_user_huver;
-            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.HoverState.Parent = this.guna2ImageButton2;
-            this.guna2ImageButton2.Image = global::WFM.Properties.Resources.add_user;
-            this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.Location = new System.Drawing.Point(492, 0);
-            this.guna2ImageButton2.Name = "guna2ImageButton2";
-            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.PressedState.Parent = this.guna2ImageButton2;
-            this.guna2ImageButton2.Size = new System.Drawing.Size(87, 73);
-            this.guna2ImageButton2.TabIndex = 4;
-            this.guna2ImageButton2.Click += new System.EventHandler(this.guna2ImageButton2_Click);
-            // 
             // txtSearchEMP
             // 
             this.txtSearchEMP.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -128,6 +101,40 @@
             this.txtSearchEMP.Size = new System.Drawing.Size(573, 26);
             this.txtSearchEMP.TabIndex = 1;
             this.txtSearchEMP.TextChanged += new System.EventHandler(this.txtSearchEMP_TextChanged);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.panel2.Controls.Add(this.btnAttendanceReport);
+            this.panel2.Controls.Add(this.btnAdd);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
+            this.panel2.Size = new System.Drawing.Size(579, 73);
+            this.panel2.TabIndex = 0;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAdd.Location = new System.Drawing.Point(441, 10);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(128, 63);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = "Add New Employee";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnAttendanceReport
+            // 
+            this.btnAttendanceReport.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAttendanceReport.Location = new System.Drawing.Point(319, 10);
+            this.btnAttendanceReport.Name = "btnAttendanceReport";
+            this.btnAttendanceReport.Size = new System.Drawing.Size(122, 63);
+            this.btnAttendanceReport.TabIndex = 6;
+            this.btnAttendanceReport.Text = "Attendance Report";
+            this.btnAttendanceReport.UseVisualStyleBackColor = true;
+            this.btnAttendanceReport.Click += new System.EventHandler(this.btnAttendanceReport_Click);
             // 
             // Employees
             // 
@@ -153,7 +160,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgAllUsers;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
         private System.Windows.Forms.TextBox txtSearchEMP;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnAttendanceReport;
     }
 }

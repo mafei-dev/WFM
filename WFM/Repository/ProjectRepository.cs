@@ -67,5 +67,7 @@ namespace WFM.Repository
 
 	        return unitOfWork.Connection.Query<int>(sql, null, unitOfWork.Transaction).SingleOrDefault();
         }
+        
+        
     }
 }

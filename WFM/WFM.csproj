@@ -50,6 +50,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,9 +63,11 @@
   <ItemGroup>
     <Compile Include="Controller\AddNewAssetController.cs" />
     <Compile Include="Controller\AddNewProjectController.cs" />
+    <Compile Include="Controller\AddNewProjectIncomesController.cs" />
     <Compile Include="Controller\AddNewProjectTaskController.cs" />
     <Compile Include="Controller\AssetController.cs" />
     <Compile Include="Controller\AssignEmployeeController.cs" />
+    <Compile Include="Controller\AttendanceReportController.cs" />
     <Compile Include="Controller\EmployeesController.cs" />
     <Compile Include="Controller\IAddNewProjectController.cs" />
     <Compile Include="Controller\IEmployeesController.cs" />
@@ -86,8 +89,10 @@
     <Compile Include="Entity\Asset.cs" />
     <Compile Include="Entity\Attendance.cs" />
     <Compile Include="Entity\AttendDate.cs" />
+    <Compile Include="Entity\Client.cs" />
     <Compile Include="Entity\Project.cs" />
     <Compile Include="Entity\ProjectEmployee.cs" />
+    <Compile Include="Entity\ProjectIncome.cs" />
     <Compile Include="Entity\ProjectTask.cs" />
     <Compile Include="Entity\TaskAssetExpense.cs" />
     <Compile Include="Entity\TaskEmpExpense.cs" />
@@ -101,7 +106,6 @@
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ProjectEmployee.cs" />
     <Compile Include="Models\TotalDetail.cs" />
-    <Compile Include="Presenters\IAddNewEmployee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\StaticResource.cs" />
@@ -109,18 +113,21 @@
     <Compile Include="Repository\AssetRepository.cs" />
     <Compile Include="Repository\AttendanceRepository.cs" />
     <Compile Include="Repository\AttendDateRepository.cs" />
+    <Compile Include="Repository\ClientRepository.cs" />
     <Compile Include="Repository\IAdminRepository.cs" />
     <Compile Include="Repository\IAssetRepository.cs" />
     <Compile Include="Repository\IAttendDateRepository.cs" />
     <Compile Include="Repository\EmployeeRepo.cs" />
     <Compile Include="Repository\IAttendanceRepository.cs" />
+    <Compile Include="Repository\IClientRepository.cs" />
     <Compile Include="Repository\IEmployeeRepo.cs" />
     <Compile Include="Controller\AddAttendanceController.cs" />
     <Compile Include="Controller\Common\ModelDataAnnoationCheck.cs" />
-    <Compile Include="Controller\EmployeeService.cs" />
+    <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="Controller\IAddAttendanceController.cs" />
-    <Compile Include="Controller\IEmployeeService.cs" />
+    <Compile Include="Controller\IEmployeeController.cs" />
     <Compile Include="Repository\IProjectEmployeeRepository.cs" />
+    <Compile Include="Repository\IProjectIncomeRepository.cs" />
     <Compile Include="Repository\IProjectRepository.cs" />
     <Compile Include="Repository\IProjectTaskRepository.cs" />
     <Compile Include="Repository\ITaskAssetExpenseRepository.cs" />
@@ -129,6 +136,7 @@
     <Compile Include="Repository\ITaskOtherExpenseRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Repository\ProjectEmployeeRepository.cs" />
+    <Compile Include="Repository\ProjectIncomeRepository.cs" />
     <Compile Include="Repository\ProjectRepository.cs" />
     <Compile Include="Repository\ProjectTaskRepository.cs" />
     <Compile Include="Repository\TaskAssetExpenseRepository.cs" />
@@ -138,6 +146,7 @@
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Validators\AddNewProjectValidation.cs" />
     <Compile Include="Validators\AdminValidator.cs" />
+    <Compile Include="Validators\ClientValidator.cs" />
     <Compile Include="Validators\EmployeeValidator.cs" />
     <Compile Include="Views\AddAttendance.cs">
       <SubType>Form</SubType>
@@ -163,6 +172,12 @@
     <Compile Include="Views\AddNewProject.Designer.cs">
       <DependentUpon>AddNewProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddNewProjectIncomes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddNewProjectIncomes.Designer.cs">
+      <DependentUpon>AddNewProjectIncomes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddNewTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +189,12 @@
     </Compile>
     <Compile Include="Views\Assets.Designer.cs">
       <DependentUpon>Assets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AttendanceReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AttendanceReport.Designer.cs">
+      <DependentUpon>AttendanceReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
@@ -248,11 +269,17 @@
     <EmbeddedResource Include="Views\AddNewProject.resx">
       <DependentUpon>AddNewProject.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddNewProjectIncomes.resx">
+      <DependentUpon>AddNewProjectIncomes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AddNewTask.resx">
       <DependentUpon>AddNewTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Assets.resx">
       <DependentUpon>Assets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AttendanceReport.resx">
+      <DependentUpon>AttendanceReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -291,6 +318,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\refresh.png" />
     <None Include="Resources\projects_clicked.png" />
     <None Include="Resources\add_user.png" />
     <None Include="Resources\add_user_huver.png" />

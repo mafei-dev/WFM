@@ -8,5 +8,7 @@ namespace WFM.Repository
     {
         int addNewTaskExpense(TaskExpense taskExpense);
         List<TaskExpense> GetAllEXPsByProjectTaskId(string projectTaskId);
+
+        decimal GetTotalProjectTasksExsByMonthAndYear(string month, string year);
     }
 }

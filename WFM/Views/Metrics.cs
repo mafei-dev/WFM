@@ -19,13 +19,15 @@ namespace WFM.Views
             loadToatlDetail();
         }
 
-        public static void loadToatlDetail() 
+        public  void loadToatlDetail() 
         {
             MetricsController metricsController= new MetricsController();
             Models.TotalDetail totalDetail = metricsController.GetTotalDetails();
             lblTotalProject.Text = $"Toatl Project \n {totalDetail.TotalProject}";
             lblTotalEmp.Text = $"Total Employees \n {totalDetail.TotalEmployees}";
             lblTotalAssets.Text = $"Total Assets \n {totalDetail.TotalAssets}";
+            lblTotalIncome.Text = $"Total Income \n {totalDetail.TotalIncome}";
+            lblTotalExpenses.Text = $"Total Expenses \n {totalDetail.TotalExpenses}";
         }
         private void tabPage1_Click(object sender, EventArgs e)
         {

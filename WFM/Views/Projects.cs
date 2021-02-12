@@ -25,11 +25,16 @@ namespace WFM.Views
         private List<ProjectWithClient> projects;
         private void LoadAllProjects()
         {
+            dgAllProjects.Update();
+            dgAllProjects.Rows.Clear();
+            dgAllProjects.Refresh();
+
             _projectsController = new ProjectsController();
+            projects = new List<ProjectWithClient>();
             projects = _projectsController.GetAllProjects();
             if (projects.Count > 0)
             {
-
+                
                 dgAllProjects.ColumnCount = 7;
                 // dgAllProjects.DataSource =
                 DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
@@ -65,13 +70,15 @@ namespace WFM.Views
                     };
                     dgAllProjects.Rows.Add(row);
                 }
-
+                
                 dgAllProjects.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             else
             {
                 dgAllProjects.DataSource = default;
             }
+
+            
         }
 
         private void lblAddNewProject_Click(object sender, EventArgs e)
@@ -82,9 +89,7 @@ namespace WFM.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //todo : set project object
-            // AssignEmployee assignEmployee = new AssignEmployee("ef61bfa9-0be4-4a29-9412-170deabff2f9");
-            // assignEmployee.ShowDialog(this);
+            
         }
 
         private void dgAllProjects_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -96,5 +101,27 @@ namespace WFM.Views
                 projectManagementOptionPane.ShowDialog(this);
             }
         }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            AddNewProject addNewProject = new AddNewProject();
+            addNewProject.ShowDialog(this);
+            LoadAllProjects();
+        }
+
+        private void lblRefresh_Click(object sender, EventArgs e)
+        {
+            LoadAllProjects();
+        }
+
+        private void btnAddIncome_Click(object sender, EventArgs e)
+        {
+            AddNewProjectIncomes addNewProjectIncomes = new AddNewProjectIncomes();
+            addNewProjectIncomes.ShowDialog(this);
+        }
     }
 }
+
+//todo : set project object
+// AssignEmployee assignEmployee = new AssignEmployee("ef61bfa9-0be4-4a29-9412-170deabff2f9");
+// assignEmployee.ShowDialog(this);
