@@ -34,8 +34,8 @@
             this.dgAllUsers = new System.Windows.Forms.DataGridView();
             this.txtSearchEMP = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.btnAttendanceReport = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -88,6 +88,7 @@
             this.dgAllUsers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgAllUsers.Location = new System.Drawing.Point(3, 35);
             this.dgAllUsers.Name = "dgAllUsers";
+            this.dgAllUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgAllUsers.Size = new System.Drawing.Size(573, 339);
             this.dgAllUsers.TabIndex = 0;
             this.dgAllUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAllUsers_CellContentClick);
@@ -114,17 +115,6 @@
             this.panel2.Size = new System.Drawing.Size(579, 73);
             this.panel2.TabIndex = 0;
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAdd.Location = new System.Drawing.Point(441, 10);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(128, 63);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "Add New Employee";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // btnAttendanceReport
             // 
             this.btnAttendanceReport.Dock = System.Windows.Forms.DockStyle.Right;
@@ -135,6 +125,17 @@
             this.btnAttendanceReport.Text = "Attendance Report";
             this.btnAttendanceReport.UseVisualStyleBackColor = true;
             this.btnAttendanceReport.Click += new System.EventHandler(this.btnAttendanceReport_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAdd.Location = new System.Drawing.Point(441, 10);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(128, 63);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = "Add New Employee";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // Employees
             // 

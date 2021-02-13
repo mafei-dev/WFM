@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddNew = new System.Windows.Forms.Button();
             this.lblRefresh = new System.Windows.Forms.Label();
+            this.btnAddNew = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgAllProjects = new System.Windows.Forms.DataGridView();
-            this.btnAddIncome = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -62,7 +61,6 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
             this.tableLayoutPanel2.Controls.Add(this.lblRefresh, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnAddNew, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnAddIncome, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -70,16 +68,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(699, 73);
             this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.Location = new System.Drawing.Point(625, 3);
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(71, 67);
-            this.btnAddNew.TabIndex = 0;
-            this.btnAddNew.Text = "Add New Project";
-            this.btnAddNew.UseVisualStyleBackColor = true;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // lblRefresh
             // 
@@ -92,6 +80,16 @@
             this.lblRefresh.TabIndex = 0;
             this.lblRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblRefresh.Click += new System.EventHandler(this.lblRefresh_Click);
+            // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Location = new System.Drawing.Point(625, 3);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(71, 67);
+            this.btnAddNew.TabIndex = 0;
+            this.btnAddNew.Text = "Add New Project";
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -111,8 +109,8 @@
             // 
             this.dgAllProjects.AllowUserToAddRows = false;
             this.dgAllProjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dgAllProjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgAllProjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgAllProjects.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.dgAllProjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgAllProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -125,17 +123,6 @@
             this.dgAllProjects.Size = new System.Drawing.Size(693, 324);
             this.dgAllProjects.TabIndex = 0;
             this.dgAllProjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAllProjects_CellContentClick);
-            // 
-            // btnAddIncome
-            // 
-            this.btnAddIncome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddIncome.Location = new System.Drawing.Point(544, 3);
-            this.btnAddIncome.Name = "btnAddIncome";
-            this.btnAddIncome.Size = new System.Drawing.Size(75, 67);
-            this.btnAddIncome.TabIndex = 1;
-            this.btnAddIncome.Text = "Add New Income";
-            this.btnAddIncome.UseVisualStyleBackColor = true;
-            this.btnAddIncome.Click += new System.EventHandler(this.btnAddIncome_Click);
             // 
             // Projects
             // 
@@ -162,6 +149,5 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Label lblRefresh;
-        private System.Windows.Forms.Button btnAddIncome;
     }
 }

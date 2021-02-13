@@ -116,8 +116,7 @@ namespace WFM.Views
 
         private void btnAddIncome_Click(object sender, EventArgs e)
         {
-            AddNewProjectIncomes addNewProjectIncomes = new AddNewProjectIncomes();
-            addNewProjectIncomes.ShowDialog(this);
+           
         }
     }
 }

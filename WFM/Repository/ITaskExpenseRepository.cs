@@ -10,5 +10,6 @@ namespace WFM.Repository
         List<TaskExpense> GetAllEXPsByProjectTaskId(string projectTaskId);
 
         decimal GetTotalProjectTasksExsByMonthAndYear(string month, string year);
+        List<TaskExpenseView> GetAllTaskExpensesByRange(DateTime from, DateTime to);
     }
 }

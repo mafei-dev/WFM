@@ -16,6 +16,11 @@ namespace WFM
         public Dashboard()
         {
             InitializeComponent();
+            PnlDashboard.Controls.Clear();
+            Metrics.Dock = DockStyle.Fill;
+            PnlDashboard.Controls.Add(Metrics);
+
+
         }
 
         private void licensing1_Load(object sender, EventArgs e)
@@ -128,6 +133,18 @@ namespace WFM
             PnlDashboard.Controls.Clear();
             Assets.Dock = DockStyle.Fill;
             PnlDashboard.Controls.Add(Assets);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private INAndEXPsManage INAndEXPsManage = new INAndEXPsManage();
+        private void label2_Click(object sender, EventArgs e)
+        {
+            PnlDashboard.Controls.Clear();
+            INAndEXPsManage.Dock = DockStyle.Fill;
+            PnlDashboard.Controls.Add(INAndEXPsManage);
         }
     }
 }

@@ -154,6 +154,7 @@ namespace WFM.Views
         {
             AddNewEmployee addNewEmployee = new AddNewEmployee();
             addNewEmployee.ShowDialog(this);
+            LoadTable(_employeesController.GetAllUsers());
         }
 
         private void btnAttendanceReport_Click(object sender, EventArgs e)

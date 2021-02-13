@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using WFM.Entity;
 
 namespace WFM.Repository
@@ -7,5 +8,6 @@ namespace WFM.Repository
     {
         decimal GetTotalProjectIncomesByMonthAndYear(string month,string year);
         int AddNewProjectIncome(ProjectIncome projectIncome);
+        List<ProjectIncomeView> GetAllIncomesByRange(DateTime from, DateTime to);
     }
 }
