@@ -19,7 +19,7 @@ namespace WFM.Repository
         public int AddNewAsset(Asset asset)
         {
             string sql =
-                $@"INSERT INTO [dbo].[Asset]([Asset_Id], [Name], [Note], [QTY]) VALUES (@Asset_Id, @Name, @Note, @QTY);";
+                $@"INSERT INTO [dbo].[Asset]([Asset_Id], [Name], [Note], [QTY],[Category]) VALUES (@Asset_Id, @Name, @Note, @QTY,@Category);";
             return unitOfWork.Connection.Execute(sql, asset, unitOfWork.Transaction);
         }
 
@@ -29,7 +29,8 @@ namespace WFM.Repository
 	                        Asset.Asset_Id, 
 	                        Asset.Name, 
 	                        Asset.Note, 
-	                        Asset.QTY
+	                        Asset.QTY,
+	                        Asset.Category
                         FROM
 	                        dbo.Asset;";
             return unitOfWork.Connection.Query<Asset>(sql, null, unitOfWork.Transaction).ToList();

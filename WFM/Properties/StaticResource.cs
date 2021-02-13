@@ -66,5 +66,21 @@ namespace WFM.Properties
             "Fuel ",
             "Other"
         };
+
+        public static List<string> ASSETS_TYPE = new List<string>()
+        {
+            "Vehicles",
+            "Furniture ",
+            "Patents",
+            "Investments",
+            "Land",
+            "Building",
+            "Machinery",
+            "Trademarks",
+            "Other"
+        };
+
+
+
     }
 }

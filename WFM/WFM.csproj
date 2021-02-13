@@ -147,6 +147,7 @@
     <Compile Include="Repository\TaskExpenseRepository.cs" />
     <Compile Include="Repository\TaskOtherExpenseRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Validators\AddNewAssetValidator.cs" />
     <Compile Include="Validators\AddNewProjectValidation.cs" />
     <Compile Include="Validators\AdminValidator.cs" />
     <Compile Include="Validators\ClientValidator.cs" />

@@ -39,7 +39,7 @@ namespace WFM.Views
                 // dgAllProjects.DataSource =
                 DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
                 btn.HeaderText = "#Action";
-                btn.Text = "Update";
+                btn.Text = "More";
                 btn.Name = "btnUpdate";
                 btn.UseColumnTextForButtonValue = true;
                 // btn.Width = 55;

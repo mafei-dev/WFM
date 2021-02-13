@@ -72,7 +72,7 @@ namespace WFM.Views
             dgAllUsers.Columns[6].Name = "Birthday";
             dgAllUsers.Columns[7].Name = "Gender";
 
-            _employeesController = new EmployeesController();
+            /*_employeesController = new EmployeesController();
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
             btn.HeaderText = "#Action";
             btn.Text = "Update";
@@ -85,7 +85,7 @@ namespace WFM.Views
             btn1.Text = "More";
             btn1.Name = "btnMore";
             btn1.UseColumnTextForButtonValue = true;
-            dgAllUsers.Columns.Add(btn1);
+            dgAllUsers.Columns.Add(btn1);*/
             try
             {
 
@@ -161,6 +161,12 @@ namespace WFM.Views
         {
             AttendanceReport attendanceReport = new AttendanceReport();
             attendanceReport.ShowDialog(this);
+        }
+
+        private void btnAddAttendance_Click(object sender, EventArgs e)
+        {
+            AddAttendance addAttendance = new AddAttendance();
+            addAttendance.ShowDialog(this);
         }
     }
 }

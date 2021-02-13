@@ -34,9 +34,10 @@
             this.dgAllUsers = new System.Windows.Forms.DataGridView();
             this.txtSearchEMP = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnAttendanceReport = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnAddAttendance = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -107,22 +108,38 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.panel2.Controls.Add(this.btnAddAttendance);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnAttendanceReport);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 2, 2, 0);
             this.panel2.Size = new System.Drawing.Size(579, 73);
             this.panel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(0, 2);
+            this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(327, 71);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Employee";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnAttendanceReport
             // 
             this.btnAttendanceReport.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAttendanceReport.Location = new System.Drawing.Point(319, 10);
+            this.btnAttendanceReport.Location = new System.Drawing.Point(327, 2);
             this.btnAttendanceReport.Name = "btnAttendanceReport";
-            this.btnAttendanceReport.Size = new System.Drawing.Size(122, 63);
+            this.btnAttendanceReport.Size = new System.Drawing.Size(122, 71);
             this.btnAttendanceReport.TabIndex = 6;
             this.btnAttendanceReport.Text = "Attendance Report";
             this.btnAttendanceReport.UseVisualStyleBackColor = true;
@@ -131,26 +148,24 @@
             // btnAdd
             // 
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAdd.Location = new System.Drawing.Point(441, 10);
+            this.btnAdd.Location = new System.Drawing.Point(449, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(128, 63);
+            this.btnAdd.Size = new System.Drawing.Size(128, 71);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add New Employee";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // label1
+            // btnAddAttendance
             // 
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(0, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(319, 63);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Employee";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddAttendance.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAddAttendance.Location = new System.Drawing.Point(252, 2);
+            this.btnAddAttendance.Name = "btnAddAttendance";
+            this.btnAddAttendance.Size = new System.Drawing.Size(75, 71);
+            this.btnAddAttendance.TabIndex = 8;
+            this.btnAddAttendance.Text = "Attendance +";
+            this.btnAddAttendance.UseVisualStyleBackColor = true;
+            this.btnAddAttendance.Click += new System.EventHandler(this.btnAddAttendance_Click);
             // 
             // Employees
             // 
@@ -180,5 +195,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnAttendanceReport;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAddAttendance;
     }
 }

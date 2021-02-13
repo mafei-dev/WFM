@@ -48,5 +48,10 @@ namespace WFM.Views
         {
 
         }
+
+        private void lblRefresh_Click(object sender, EventArgs e)
+        {
+            loadToatlDetail();
+        }
     }
 }
